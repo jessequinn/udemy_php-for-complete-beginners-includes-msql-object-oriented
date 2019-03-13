@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="694e90d6-5226-4a26-9319-5094ccdc48ff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Course_Work/demo/77_writing_files..php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course_Work/demo/78_read_files..php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course_Work/demo/79_deleting_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/includes/footer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/includes/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/login_create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/login_delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/login_read.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_mysql/login_update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/1.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/10.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/10.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/2.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/3.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/4.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/5.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/6.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/7.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/8.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/9.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/9.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/navigation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/includes/navigation.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/js/myscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/_practical-app/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Course_Work/demo/_practical-app/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/array_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/arrays.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/arrays_assoc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/blank.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_access.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_car.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_car2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_car3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_constructor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_inheritance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/class_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/comments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/comparison_operators.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/constants.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/cookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/dynamic_text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/embed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/example.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/for_loop.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/foreach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/form.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/form_external.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/form_process.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/get.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/ifstatement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/math.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/math_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/methods_params.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/passing_params_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/return_values_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/scope.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/session1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/session2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/string_functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/strings_numbers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/switch_statements.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/the_post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/time.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/variables.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course_Work/demo/while_loop.php" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/nav.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="29" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Course_Work/demo" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/5_embed.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/6_dynamic_text.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/7_comments.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/1.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/11_arrays.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/2.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/14_ifstatement.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/16_switch_statements.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/3.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/20_functions.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/4.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/5.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/31_32_33_form.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/34_form_external.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_practical-app/6.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/38_39_40_login.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_db.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/44_login_read.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/43_50_51_53_54_login_create.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_46_52_53_functions.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_46_47_48_login_update.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/49_login_delete.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/57_get.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/58_the_post.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/60_61_cookies.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/65_class_car.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/67_68_class_car3.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/71_class_access.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/72_class_static.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/76_opening_files.php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/77_writing_files..php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/78_read_files..php" />
+        <option value="$PROJECT_DIR$/01 The First Steps/demo/79_deleting_files.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/index.html" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/header.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/footer.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/sidebar.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/db.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/nav.php" />
+        <option value="$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/index.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1280" />
+    <option name="width" value="1280" />
+    <option name="height" value="1412" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/01 The First Steps/demo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.12_arrays_assoc.php (1)">
+    <configuration name="11_arrays.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/phpcourse/11_arrays.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="12_arrays_assoc.php (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/php-for-complete-beginners-includes-msql-object-oriented/01 The First Steps/demo/12_arrays_assoc.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="12_arrays_assoc.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/phpcourse/12_arrays_assoc.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="11_arrays.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/01 The First Steps/demo/11_arrays.php">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.11_arrays.php" />
+      <item itemvalue="JavaScript Debug.12_arrays_assoc.php" />
+      <item itemvalue="JavaScript Debug.12_arrays_assoc.php (1)" />
+      <item itemvalue="PHP Script.11_arrays.php" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.12_arrays_assoc.php (1)" />
+        <item itemvalue="JavaScript Debug.12_arrays_assoc.php" />
+        <item itemvalue="PHP Script.11_arrays.php" />
+        <item itemvalue="JavaScript Debug.11_arrays.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="694e90d6-5226-4a26-9319-5094ccdc48ff" name="Default Changelist" comment="" />
+      <created>1552309618356</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552309618356</updated>
+      <workItem from="1552309620320" duration="6532000" />
+      <workItem from="1552338404238" duration="5402000" />
+      <workItem from="1552485939002" duration="16178000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="28112000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1280" y="0" width="1280" height="1412" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28373984" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.499187" visible="true" weight="0.43335932" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.500813" side_tool="true" weight="0.43335932" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/19_foreach.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/18_for_loop.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/20_functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/21_passing_params_functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/22_return_values_functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/23_scope.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/24_constants.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#231#467#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/25_math_functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/28_array_functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/29_string_functions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding>
+            <element signature="e#239#422#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/34_form_process.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/34_form_external.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/31_32_33_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/38_39_40_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/_includes/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/44_login_read.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/49_login_delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_46_47_48_login_update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/43_50_51_53_54_login_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_practical-app/7.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#251#431#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/_36_mysql/45_46_52_53_functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/58_the_post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/61_session2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/60_61_cookies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/62_session1.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/57_get.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/65_class_car.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/66_class_car2.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/67_68_class_car3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/69_class_inheritance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/70_class_constructor.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/71_class_access.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="40" column="62" lean-forward="true" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/72_class_static.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/76_opening_files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/example.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/77_writing_files..php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="2" lean-forward="true" selection-end-line="13" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/78_read_files..php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01 The First Steps/demo/79_deleting_files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2369" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/includes/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Course_Work/CMS_TEMPLATE/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
