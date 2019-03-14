@@ -1,6 +1,6 @@
 <?php include "45_46_52_53_functions.php"; ?>
 <?php UpdateTable(); ?>
-<?php include "includes/header.php" ?>
+<?php include "includes/admin_header.php" ?>
     <div class="container">
     <div class="col-sm-6">
         <h1 class="text-center">Update</h1>
@@ -23,4 +23,4 @@
             <input class="btn btn-primary" type="submit" name="submit" value="UPDATE">
         </form>
     </div>
-<?php include "includes/footer.php" ?>
+<?php include "includes/admin_footer.php" ?>

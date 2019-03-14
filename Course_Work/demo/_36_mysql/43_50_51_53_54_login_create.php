@@ -1,7 +1,7 @@
 <?php include "45_46_52_53_functions.php" ?>
 <?php createRows(); ?>
 
-<?php include "includes/header.php" ?>
+<?php include "includes/admin_header.php" ?>
 
     <div class="container">
 
@@ -24,4 +24,4 @@
         </div>
 
 
-<?php include "includes/footer.php" ?>
+<?php include "includes/admin_footer.php" ?>

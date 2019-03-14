@@ -2,7 +2,7 @@
 
 <?php deleteRows(); ?>
 
-<?php include "includes/header.php" ?>
+<?php include "includes/admin_header.php" ?>
 
     <div class="container">
 
@@ -37,4 +37,4 @@
     </div>
 
 
-<?php include "includes/footer.php" ?>
+<?php include "includes/admin_footer.php" ?>
