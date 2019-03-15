@@ -22,27 +22,25 @@
             <div class="col-lg-12">
                 <ul class="list-unstyled">
                     <?php
-
                     $query = "SELECT * FROM categories LIMIT 3";
-                    $res = mysqli_query($con, $query);
+                    $res = $con->query($query);
 
                     if ($res === FALSE) {
                         die(mysqli_error($con));
                     }
 
-                    while ($row = mysqli_fetch_assoc($res)) {
+                    while ($row = $res->fetch_assoc()) {
+                        $cat_id = $row['cat_id'];
                         $cat_title = $row['cat_title'];
-                        echo "<li><a href='#'>{$cat_title}</a></li>";
-                    }
 
+                        echo "<li><a href='category.php?cid=$cat_id'>$cat_title</a></li>";
+                    }
                     ?>
                 </ul>
             </div>
         </div>
-        </div>
-        </div>
-        <!-- /.row -->
     </div>
+    <!-- /.row -->
 
     <!-- Side Widget Well -->
 <?php include "widget.php" ?>

@@ -13,32 +13,33 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondard Text</small>
+                </h1>
             <?php
 
             $query = "SELECT * FROM posts ORDER BY post_date DESC";
-            $res = mysqli_query($con, $query);
+            $res = $con->query($query);
 
             if ($res === FALSE) {
-                die(mysqli_error($con));
+                die($con->affected_rows());
             }
 
-            while ($row = mysqli_fetch_assoc($res)) {
+            while ($row = $res->fetch_assoc()) {
+                $post_id = $row['post_id'];
                 $post_title = $row['post_title'];
                 $post_author = $row['post_author'];
                 $post_date = $row['post_date'];
                 $post_img = $row['post_img'];
-                $post_content = $row['post_content'];
+                $post_content = substr($row['post_content'], 0, 100);
 
                 echo <<<EOL
-                <h1 class="page-header">
-                    Page Heading         
-                    <small>Secondard Text</small>
-                </h1>
+ 
                 
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#">{$post_title}</a>
+                    <a href="post.php?pid=$post_id">{$post_title}</a>
                 </h2>
                 <p class="lead">
                 by <a href="index.php">{$post_author}</a>
