@@ -17,6 +17,16 @@
 
                     if(isset($_GET['source'])) {
                         $source = $_GET['source'];
+                    } elseif (isset($_GET['delete'])) {
+                        $post_id = $_GET['delete'];
+                        $source = '';
+
+                        $post_id = $con->real_escape_string($post_id);
+
+                        $query = "DELETE FROM posts WHERE post_id = {$post_id} ";
+                        $res = $con->query($query);
+
+                        confirmSQLResult($res);
                     } else {
                         $source = '';
                     }
@@ -25,7 +35,9 @@
                         case 'add_post':
                             include "includes/add_post.php";
                             break;
-
+                        case 'update_post':
+                            include "includes/update_post.php";
+                            break;
                         default:
                             include "includes/view_all_posts.php";
                             break;

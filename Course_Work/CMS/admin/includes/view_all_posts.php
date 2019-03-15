@@ -28,12 +28,26 @@
             <td>{$row['post_id']}</td>
             <td>{$row['post_author']}</td>
             <td>{$row['post_title']}</td>
-            <td>{$row['post_category_id']}</td>
+        EOL;
+
+        $query = "SELECT * FROM categories WHERE cat_id = {$row['post_category_id']} ";
+        $res_cat = $con->query($query);
+
+        confirmSQLResult($res_cat);
+
+        $row_cat= $res_cat->fetch_assoc();
+
+        $cat_title = $row_cat['cat_title'];
+
+        echo <<<EOL
+            <td>{$cat_title}</td>
             <td>{$row['post_status']}</td>
             <td><img width="100%" src="../images/{$row['post_img']}" alt="image"></td>
             <td>{$row['post_tags']}</td>
             <td>{$row['post_comment_count']}</td>
             <td>{$row['post_date']}</td>
+            <td><a href="posts.php?source=update_post&pid={$row['post_id']}">Edit</a></td>
+            <td><a href="posts.php?delete={$row['post_id']}">Delete</a></td>
         </tr>
         EOL;
     }

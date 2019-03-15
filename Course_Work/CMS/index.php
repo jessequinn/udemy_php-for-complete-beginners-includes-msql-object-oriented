@@ -16,7 +16,7 @@
 
             <?php
 
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts ORDER BY post_date DESC";
             $res = mysqli_query($con, $query);
 
             if ($res === FALSE) {
