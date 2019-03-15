@@ -1,4 +1,13 @@
 <?php
+
+/* confirmation function */
+function confirmSQLResult($res) {
+    global $con;
+    if ($res === FALSE) {
+        die($con->affected_rows);
+    }
+}
+
 function insertCategory()
 {
     global $con;

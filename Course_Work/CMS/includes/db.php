@@ -14,8 +14,10 @@ foreach ($db as $key => $value) {
 
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-//if ($con) {
-//    echo 'we are connected';
-//}
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
 
 ?>
