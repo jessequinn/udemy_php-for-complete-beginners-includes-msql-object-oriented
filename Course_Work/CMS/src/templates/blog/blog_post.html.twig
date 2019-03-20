@@ -1,0 +1,16 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('nav.html.twig') }}
+    {% if post_show is defined %}
+    <div class="docs-section" id="{{ post_show.post_id }}">
+        <h1>{{ post_show.post_title|e }}</h1>
+        <p>by {{ post_show.post_author|e }}</p>
+        <p>Posted on {{ post_show.post_date|e|date("d-m-y") }}</p>
+        <img src="/images/{{  post_show.post_img }}" alt="">
+        <p>{{ post_show.post_content }}</p>
+    </div>
+    {% endif %}
+    {{ include('blog/blog_comments.html.twig') }}
+</div>
+</div>
+{{ include('footer.html') }}

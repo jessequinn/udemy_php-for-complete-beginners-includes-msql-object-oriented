@@ -1,0 +1,46 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('admin/admin_nav.html.twig') }}
+    <div class="docs-section">
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                {#<th>ID</th>#}
+                <th>Author</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Tags</th>
+                <th>Comments</th>
+                <th>Date</th>
+                <th colspan="2">Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in posts %}
+                <tr>
+                    {#<td>{{ p.post_id }}</td>#}
+                    <td>{{ p.post_author }}</td>
+                    <td>{{ p.post_title }}</td>
+                    <td>
+                        {% for c in categories %}
+                            {%  if c.cat_id == p.post_category_id %}
+                                {{  c.cat_title }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ p.post_status }}</td>
+                    <td><img width="100%" src="../images/{{ p.post_img }}" alt="image"></td>
+                    <td>{{ p.post_tags }}</td>
+                    <td>{{ p.post_comment_count }}</td>
+                    <td>{{  p.post_date|e }}</td>
+                    <td><a href="/admin/posts/edit/{{ p.post_id }}">Edit</a></td>
+                    <td><a href="/admin/posts/delete/{{ p.post_id }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{ include('footer.html') }}

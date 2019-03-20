@@ -1,0 +1,58 @@
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list u-pull-left">
+            <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/admin">Dashboard</a></li>
+        </ul>
+        <ul class="navbar-list u-pull-right">
+            <li class="navbar-item"><a class="navbar-link" href="/admin/categories">Categories</a></li>
+            <li class="navbar-item">
+                <a class="navbar-link" href="#" data-popover="#postsPopover">Posts</a>
+                <div id="postsPopover" class="popover">
+                    <ul class="popover-list">
+                        <li class="popover-item">
+                            <a class="popover-link" href="/admin/posts">View All Posts</a>
+                        </li>
+                        <li class="popover-item">
+                            <a class="popover-link" href="/admin/posts/add">Add Post</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="navbar-item"><a class="navbar-link" href="/admin/comments">Comments</a></li>
+            <li class="navbar-item">
+                <a class="navbar-link" href="#" data-popover="#usersPopover">Users</a>
+                <div id="usersPopover" class="popover">
+                    <ul class="popover-list">
+                        <li class="popover-item">
+                            <a class="popover-link" href="/admin/users">View All Users</a>
+                        </li>
+                        <li class="popover-item">
+                            <a class="popover-link" href="/admin/users/add">Add User</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="navbar-item">
+                <a class="navbar-link" href="#" data-popover="#userProfile">
+                    <i class="fas fa-user"></i> {{ session.user_firstname }}
+                </a>
+                <div id="userProfile" class="popover">
+                    <ul class="popover-list">
+                        <li class="popover-item">
+                            <a class="popover-link" href="{{ path_for('admin-edit-user-form',
+                                {
+                                    'id': session.user_id
+                                })
+                            }}">Edit User</a>
+                        </li>
+                        <li class="popover-item">
+                            <a class="popover-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

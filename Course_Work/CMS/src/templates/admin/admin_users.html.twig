@@ -1,0 +1,42 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('admin/admin_nav.html.twig') }}
+    <div class="docs-section">
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                {#<th>ID</th>#}
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Role</th>
+                <th>Approve</th>
+                <th>Unapprove</th>
+                <th colspan="2">Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if users is defined %}
+                {% for u in users %}
+                    <tr>
+                        {#<td>{{ u.user_id }}</td>#}
+                        <td>{{ u.user_username }}</td>
+                        <td>{{ u.user_firstname }}</td>
+                        <td>{{ u.user_lastname }}</td>
+                        <td>{{ u.user_email }}</td>
+                        <td><img width="100%" src="../images/users/{{ u.post_img }}" alt="image"></td>
+                        <td>{{ u.user_role }}</td>
+                        <td><a href="/admin/users/approve/{{ u.user_id }}">Approve</a></td>
+                        <td><a href="/admin/users/unapprove/{{ u.user_id }}">Unapprove</a></td>
+                        <td><a href="/admin/users/edit/{{ u.user_id }}">Edit</a></td>
+                        <td><a href="/admin/users/delete/{{ u.user_id }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{ include('footer.html') }}

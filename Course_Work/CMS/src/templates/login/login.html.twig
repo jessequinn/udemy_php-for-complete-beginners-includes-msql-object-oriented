@@ -1,0 +1,22 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('nav.html.twig') }}
+    <div class="docs-section">
+        <form method="post" action="{{ path_for('login-user') }}">
+            <div class="row">
+                <div class="six columns">
+                    <label for="user_username">Username</label>
+                    <input class="u-full-width" type="text"  id="user_username" name="user_username">
+                </div>
+                <div class="six columns">
+                    <label for="user_password">Password</label>
+                    <input class="u-full-width" type="password" id="user_password" name="user_password">
+                </div>
+            </div>
+            <input type="hidden" name="csrf_name" value="{{ csrf.name }}">
+            <input type="hidden" name="csrf_value" value="{{ csrf.value }}">
+            <input class="button-primary" type="submit" value="Login">
+        </form>
+    </div>
+</div>
+{{ include('footer.html') }}

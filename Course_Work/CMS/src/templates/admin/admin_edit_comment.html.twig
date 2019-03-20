@@ -1,0 +1,35 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('admin/admin_nav.html.twig') }}
+    <div class="docs-section">
+        <h1>Comment Section</h1>
+        <form action="{{ path_for('admin-edit-comment') }}" method="post">
+            <div class="row">
+                <div class="six columns">
+                    <label for="comment_author">Author</label>
+                    <input class="u-full-width" type="text" id="comment_author" name="comment_author"
+                           value="{{ comment_data.comment_author }}">
+                </div>
+                <div class="six columns">
+                    <label for="comment_email">Email</label>
+                    <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="comment_email"
+                           name="comment_email" value="{{ comment_data.comment_email }}">
+                </div>
+            </div>
+            <label for="comment_content">Comment</label>
+            <textarea class="u-full-width" id="comment_content"
+                      name="comment_content">{{- comment_data.comment_content -}}</textarea>
+            <input type="hidden" name="comment_post_id" value="{{ comment_data.comment_post_id }}">
+            <input type="hidden" name="comment_id" value="{{ comment_data.comment_id }}">
+            <input type="hidden" name="csrf_name" value="{{ csrf.name }}">
+            <input type="hidden" name="csrf_value" value="{{ csrf.value }}">
+            <input class="button-primary" type="submit" value="Submit">
+        </form>
+        {% if error is defined %}
+            <div>
+                {{- error -}}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{{ include('footer.html') }}

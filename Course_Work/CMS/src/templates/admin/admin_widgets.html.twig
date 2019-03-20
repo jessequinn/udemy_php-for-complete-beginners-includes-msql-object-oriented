@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="three columns">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="three columns">
+                        <i class="fa fa-file-alt fa-3x"></i>
+                    </div>
+                    <div class="nine columns text-right">
+                        <div class='huge'>{{ post_count }}</div>
+                        <div>Posts</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path_for('admin-list-posts') }}">
+                <div class="panel-footer">
+                    <span class="u-pull-left">View Details</span>
+                    <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="u-cf"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="three columns">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="three columns">
+                        <i class="fa fa-comments fa-3x"></i>
+                    </div>
+                    <div class="nine columns text-right">
+                        <div class='huge'>{{ comment_count }}</div>
+                        <div>Comments</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path_for('admin-list-comments') }}">
+                <div class="panel-footer">
+                    <span class="u-pull-left">View Details</span>
+                    <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="u-cf"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="three columns">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="three columns">
+                        <i class="fa fa-user fa-3x"></i>
+                    </div>
+                    <div class="nine columns text-right">
+                        <div class='huge'>{{ user_count }}</div>
+                        <div> Users</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path_for('admin-list-users') }}">
+                <div class="panel-footer">
+                    <span class="u-pull-left">View Details</span>
+                    <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="u-cf"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="three columns">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="three columns">
+                        <i class="fa fa-list fa-3x"></i>
+                    </div>
+                    <div class="nine columns text-right">
+                        <div class='huge'>{{ category_count }}</div>
+                        <div>Categories</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path_for('admin-list-categories') }}">
+                <div class="panel-footer">
+                    <span class="u-pull-left">View Details</span>
+                    <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="u-cf"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

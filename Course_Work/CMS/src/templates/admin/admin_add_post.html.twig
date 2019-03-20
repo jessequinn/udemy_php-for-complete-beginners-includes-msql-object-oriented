@@ -1,0 +1,86 @@
+{{ include('header.html') }}
+<div class="container">
+    {{ include('admin/admin_nav.html.twig') }}
+    <div class="docs-section">
+        <h1>Post Section</h1>
+        <p>You may also edit or delete individual categories.</p>
+        <form action="/admin/posts/add" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="eight columns">
+                    <label for="post_title">Title</label>
+                    <input class="u-full-width" type="text" id="post_title" name="post_title"
+                            {% if post_edit is defined %}
+                                value="{{ post_edit.post_title }}"
+                            {% endif %}
+                    >
+                </div>
+                <div class="four columns">
+                    <label for="post_category">Category</label>
+                    <select class="u-full-width" id="post_category" name="post_category">
+                        {% if categories is defined %}
+                            {% for c in categories %}
+                                <option value="{{ c.cat_id }}"
+                                        {% if c.cat_id == post_edit.post_category_id %}
+                                            {{ 'selected' }}
+                                        {% endif %}
+                                >{{ c.cat_title }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight columns">
+                    <label for="post_author">Author</label>
+                    <input class="u-full-width" type="text" id="post_title" name="post_author"
+                            {% if post_edit is defined %}
+                                value="{{ post_edit.post_author }}"
+                            {% endif %}
+                    >
+                </div>
+                <div class="four columns">
+                    <label for="post_status">Status</label>
+                    <select class="u-full-width" id="post_status" name="post_status">
+                        <option value="Draft"
+                                {% if post_edit.post_status == 'Draft' %}
+                                    {{ 'selected' }}
+                                {% endif %}
+                        >Draft
+                        </option>
+                        <option value="Published"
+                                {% if post_edit.post_status == 'Published' %}
+                                    {{ 'selected' }}
+                                {% endif %}
+                        >Published
+                        </option>
+                    </select>
+                </div>
+            </div>
+            {% if post_edit is defined %}
+                <input type="hidden" name="post_img_org" value="{{ post_edit.post_img }}">
+                <img src="/images/{{ post_edit.post_img }}" alt="image">
+                <input type="hidden" value="{{ post_edit.post_id }}" name="post_id">
+            {% endif %}
+            <label for="post_img">Image</label>
+            <input type="file" id="post_img" name="post_img">
+            <label for="post_tags">Tags</label>
+            <input class="u-full-width" type="text" id="post_tags" name="post_tags"
+                    {% if post_edit is defined %}
+                        value="{{ post_edit.post_tags|e }}"
+                    {% endif %}
+            >
+            <label for="post_content">Content</label>
+            <textarea class="u-full-width" name="post_content" id="post_content">
+                {%- if post_edit is defined -%}
+                    {{ post_edit.post_content|e }}
+                {%- endif -%}
+            </textarea>
+            {% if post_edit is defined %}
+                <input class="button-primary" type="submit" name="submit" value="Edit Post">
+            {% else %}
+                <input class="button-primary" type="submit" name="submit" value="Add Post">
+            {% endif %}
+        </form>
+    </div>
+</div>
+{{ include('footer.html') }}
