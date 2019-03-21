@@ -32,7 +32,7 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo twig_include($this->env, $context, "header.html");
+        echo twig_include($this->env, $context, "admin/admin_header.html.twig");
         echo "
 <div class=\"container\">
     ";
@@ -40,20 +40,20 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
         echo twig_include($this->env, $context, "admin/admin_nav.html.twig");
         echo "
     <div class=\"docs-section\">
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
                 ";
         // line 9
-        echo "                <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Role</th>
-                <th>Approve</th>
-                <th>Unapprove</th>
-                <th colspan=\"2\">Operations</th>
+        echo "                <th scope=\"col\">Username</th>
+                <th scope=\"col\">Firstname</th>
+                <th scope=\"col\">Lastname</th>
+                <th scope=\"col\">Email</th>
+                <th scope=\"col\">Image</th>
+                <th scope=\"col\">Role</th>
+                <th scope=\"col\">Approve</th>
+                <th scope=\"col\">Unapprove</th>
+                <th scope=\"col\" colspan=\"2\">Operations</th>
             </tr>
             </thead>
             <tbody>
@@ -121,35 +121,42 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
         echo "            </tbody>
         </table>
     </div>
-    <div class=\"row\">
-        ";
+
+    ";
         // line 42
         if (((isset($context["message"]) || array_key_exists("message", $context)) &&  !twig_test_empty(($context["message"] ?? null)))) {
             // line 43
-            echo "            <div class=\"flash_message u-max-full-width\">";
+            echo "        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
             // line 44
             echo twig_escape_filter($this->env, ($context["message"] ?? null));
             // line 45
-            echo "</div>
-        ";
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
         }
-        // line 47
-        echo "        ";
+        // line 50
+        echo "
+    ";
+        // line 51
         if (((isset($context["error"]) || array_key_exists("error", $context)) &&  !twig_test_empty(($context["error"] ?? null)))) {
-            // line 48
-            echo "            <div class=\"flash_error\">";
-            // line 49
+            // line 52
+            echo "        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+            // line 53
             echo twig_escape_filter($this->env, ($context["error"] ?? null));
-            // line 50
-            echo "</div>
-        ";
+            // line 54
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
         }
-        // line 52
-        echo "    </div>
-</div>
+        // line 59
+        echo "</div>
 ";
-        // line 54
-        echo twig_include($this->env, $context, "footer.html");
+        // line 60
+        echo twig_include($this->env, $context, "admin/admin_footer.html");
     }
 
     public function getTemplateName()
@@ -164,28 +171,28 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
 
     public function getDebugInfo()
     {
-        return array (  152 => 54,  148 => 52,  144 => 50,  142 => 49,  140 => 48,  137 => 47,  133 => 45,  131 => 44,  129 => 43,  127 => 42,  121 => 38,  118 => 37,  109 => 34,  105 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  72 => 25,  69 => 23,  64 => 22,  62 => 21,  48 => 9,  40 => 3,  35 => 1,);
+        return array (  159 => 60,  156 => 59,  149 => 54,  147 => 53,  145 => 52,  143 => 51,  140 => 50,  133 => 45,  131 => 44,  129 => 43,  127 => 42,  121 => 38,  118 => 37,  109 => 34,  105 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  72 => 25,  69 => 23,  64 => 22,  62 => 21,  48 => 9,  40 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{{ include('header.html') }}
+        return new Source("{{ include('admin/admin_header.html.twig') }}
 <div class=\"container\">
     {{ include('admin/admin_nav.html.twig') }}
     <div class=\"docs-section\">
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
-                {#<th>ID</th>#}
-                <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Role</th>
-                <th>Approve</th>
-                <th>Unapprove</th>
-                <th colspan=\"2\">Operations</th>
+                {#<th scope=\"col>ID</th>#}
+                <th scope=\"col\">Username</th>
+                <th scope=\"col\">Firstname</th>
+                <th scope=\"col\">Lastname</th>
+                <th scope=\"col\">Email</th>
+                <th scope=\"col\">Image</th>
+                <th scope=\"col\">Role</th>
+                <th scope=\"col\">Approve</th>
+                <th scope=\"col\">Unapprove</th>
+                <th scope=\"col\" colspan=\"2\">Operations</th>
             </tr>
             </thead>
             <tbody>
@@ -209,19 +216,25 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
             </tbody>
         </table>
     </div>
-    <div class=\"row\">
-        {% if message is defined and message is not empty %}
-            <div class=\"flash_message u-max-full-width\">
-                {{- message|e -}}
-            </div>
-        {% endif %}
-        {% if error is defined and error is not empty %}
-            <div class=\"flash_error\">
-                {{- error|e -}}
-            </div>
-        {% endif %}
-    </div>
+
+    {% if message is defined and message is not empty %}
+        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+            {{- message|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% if error is defined and error is not empty %}
+        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+            {{- error|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 </div>
-{{ include('footer.html') }}", "admin/admin_users.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_users.html.twig");
+{{ include('admin/admin_footer.html') }}", "admin/admin_users.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_users.html.twig");
     }
 }

@@ -37,9 +37,157 @@ final class PostController
         $session = new \RKA\Session();
         return $this->view->render($response, 'admin/admin_posts.html.twig', [
             'posts' => Post::orderBy('post_id', 'desc')->get(),
-            'categories' => Category::all(),
+            'categories' => Category::orderBy('cat_title', 'asc')->get(),
             'session' => $session,
+            'error' => $this->flash->getFirstMessage('error'),
+            'message' => $this->flash->getFirstMessage('message'),
         ]);
+    }
+
+    public function addPostForm(Request $request, Response $response, $args)
+    {
+        $session = new \RKA\Session();
+
+        return $this->view->render($response, 'admin/admin_add_post.html.twig',
+            [
+                'csrf' => [
+                    'name' => $request->getAttribute('csrf_name'),
+                    'value' => $request->getAttribute('csrf_value'),
+                ],
+                'categories' => Category::orderBy('cat_title', 'asc')->get(),
+                'error' => $this->flash->getFirstMessage('error'),
+                'message' => $this->flash->getFirstMessage('message'),
+                'session' => $session,
+            ]);
+    }
+
+    public function editPostForm(Request $request, Response $response, $args)
+    {
+        if (isset($args['id'])) {
+            $post_data = Post::find($args['id']);
+
+            if ($post_data) {
+                $session = new \RKA\Session();
+
+                return $this->view->render($response, 'admin/admin_edit_post.html.twig',
+                    [
+                        'post_data' => $post_data,
+                        'csrf' => [
+                            'name' => $request->getAttribute('csrf_name'),
+                            'value' => $request->getAttribute('csrf_value'),
+                        ],
+                        'categories' => Category::orderBy('cat_title', 'asc')->get(),
+                        'error' => $this->flash->getFirstMessage('error'),
+                        'message' => $this->flash->getFirstMessage('message'),
+                        'session' => $session,
+                    ]);
+            }
+        }
+
+        return $response->withRedirect($this->router->pathFor('admin-list-users'));
+    }
+
+    public function addPost(Request $request, Response $response, $args)
+    {
+        if ($request->isPost()) {
+            $session = new \RKA\Session();
+            $post_data = $request->getParsedBody();
+            $uploadedFiles = $request->getUploadedFiles();
+
+            if (empty($uploadedFiles['post_img'])) {
+                throw new Exception('Expected a image to be attached.');
+            }
+
+            $uploadedFile = $uploadedFiles['post_img'];
+            $filename = null;
+
+            if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
+                $filename = $this->moveUploadedFile(__DIR__ . '/../../public/images', $uploadedFile);
+            } else {
+                $filename = $post_data['post_img_org'];
+            }
+
+            $validator = Post::getValidator($post_data);
+
+            if ($validator->validate()) {
+                $post_add = array(
+                    'post_category_id' => $post_data['post_category'],
+                    'post_title' => $post_data['post_title'],
+                    'post_author' => $post_data['post_author'],
+                    'post_user' => $session->user_username,
+                    'post_date' => date('y-m-d'),
+                    'post_img' => $filename,
+                    'post_content' => $post_data['post_content'],
+                    'post_tags' => $post_data['post_tags'],
+                    'post_comment_count' => 0,
+                    'post_status' => $post_data['post_status'],
+                    'post_views_count' => 0,
+                );
+
+                $post_create = Post::create($post_add);
+
+                if (!$post_create->wasRecentlyCreated) {
+                    $this->flash->addMessage('error', 'Error: post was not created');
+                    return $response->withRedirect($this->router->pathFor('admin-add-post-form'));
+
+                } else {
+                    $this->flash->addMessage('message', 'Message: new post created');
+                    return $response->withRedirect($this->router->pathFor('admin-list-posts'));
+
+                }
+
+            } else {
+                $this->flash->addMessage('error', 'Error: could not validate inputs');
+                return $response->withRedirect($this->router->pathFor('admin-add-post-form'));
+            }
+
+            return $response->withRedirect($this->router->pathFor('admin-list-posts'));
+        }
+    }
+
+    public function editPost(Request $request, Response $response, $args)
+    {
+        if ($request->isPost()) {
+            $post_data = $request->getParsedBody();
+            $validator = Post::getValidator($post_data);
+            $uploadedFiles = $request->getUploadedFiles();
+
+            if (empty($uploadedFiles['post_img'])) {
+                throw new Exception('Expected a image to be attached.');
+            }
+
+            $uploadedFile = $uploadedFiles['post_img'];
+            $filename = null;
+
+            if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
+                $filename = $this->moveUploadedFile(__DIR__ . '/../../public/images', $uploadedFile);
+            } else {
+                $filename = $post_data['post_img_org'];
+            }
+
+            if ($validator->validate()) {
+                $post_edit = Post::find($post_data['post_id']);
+
+                if ($post_edit) {
+                    $post_edit->post_category_id = $post_data['post_category'];
+                    $post_edit->post_title = $post_data['post_title'];
+                    $post_edit->post_author = $post_data['post_author'];
+                    $post_edit->post_img = $filename;
+                    $post_edit->post_content = $post_data['post_content'];
+                    $post_edit->post_status = $post_data['post_status'];
+                    $post_edit->post_tags = $post_data['post_tags'];
+                    $post_edit->save();
+                }
+            } else {
+                $this->flash->addMessage('error', 'Error: could not validate inputs');
+                return $response->withRedirect($this->router->pathFor('admin-edit-post-form',
+                    [
+                        'id' => $post_data['post_id'],
+                    ]));
+            }
+        }
+
+        return $response->withRedirect($this->router->pathFor('admin-list-posts'));
     }
 
     public function deletePost(Request $request, Response $response, $args)
@@ -56,73 +204,6 @@ final class PostController
         return $response->withRedirect($this->router->pathFor('admin-list-posts'));
     }
 
-    public function addUpdatePost(Request $request, Response $response, $args)
-    {
-        $session = new \RKA\Session();
-
-        if ($request->isPost()) {
-            $data = $request->getParsedBody();
-
-            $uploadedFiles = $request->getUploadedFiles();
-            if (empty($uploadedFiles['post_img'])) {
-                throw new Exception('Expected a image to be attached.');
-            }
-
-            $uploadedFile = $uploadedFiles['post_img'];
-
-            $filename = null;
-            if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
-                $filename = $this->moveUploadedFile(__DIR__ . '/../../public/images', $uploadedFile);
-            } else {
-                $filename = $data['post_img_org'];
-            }
-
-            $validator = Post::getValidator($data);
-
-            if ($validator->validate()) {
-                if (!empty($data['post_id'])) {
-                    $post_edit = Post::find($data['post_id']);
-
-                    if ($post_edit) {
-                        $post_edit->post_category_id = $data['post_category'];
-                        $post_edit->post_title = $data['post_title'];
-                        $post_edit->post_author = $data['post_author'];
-                        $post_edit->post_img = $filename;
-                        $post_edit->post_content = $data['post_content'];
-                        $post_edit->post_status = $data['post_status'];
-                        $post_edit->post_tags = $data['post_tags'];
-                        $post_edit->save();
-                    }
-                } else {
-                    $postData = array(
-                        'post_category_id' => $data['post_category'],
-                        'post_title' => $data['post_title'],
-                        'post_author' => $data['post_author'],
-                        'post_user' => 'jessequinn',
-                        'post_date' => date('y-m-d'),
-                        'post_img' => $filename,
-                        'post_content' => $data['post_content'],
-                        'post_tags' => $data['post_tags'],
-                        'post_comment_count' => 0,
-                        'post_status' => $data['post_status'],
-                        'post_views_count' => 0,
-                    );
-
-                    Post::create($postData);
-                }
-            } else {
-                $this->logger->error("Error: duplicate username");
-                $this->flash->addMessage('error', 'Error: duplicate username');
-//                return $response->withRedirect($this->router->pathFor('admin-add-user-form'));
-            }
-        }
-
-        return $this->view->render($response, 'admin/admin_add_post.html.twig', [
-            'categories' => Category::orderBy('cat_title')->get(),
-            'session' => $session,
-        ]);
-    }
-
     private function moveUploadedFile($directory, UploadedFile $uploadedFile)
     {
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
@@ -130,19 +211,5 @@ final class PostController
         $filename = sprintf('%s.%0.8s', $basename, $extension);
         $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
         return $filename;
-    }
-
-    public function editCategory(Request $request, Response $response, $args)
-    {
-        $post_edit = null;
-
-        if (isset($args['id'])) {
-            $post_edit = Post::find($args['id']);
-        }
-
-        return $this->view->render($response, 'admin/admin_add_post.html.twig', [
-            'post_edit' => $post_edit,
-            'categories' => Category::all(),
-        ]);;
     }
 }

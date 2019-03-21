@@ -83,53 +83,68 @@ class __TwigTemplate_f4461d24428ec6d8aa91c93cdfc13f6b6245df574348a2d637603b68c08
                 // line 29
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "post_date", [])), "m/d/Y"), "html", null, true);
                 echo "</p>
-                <img src=\"/images/";
+                <a href=\"/blog/post/";
                 // line 30
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "post_id", []), "html", null, true);
+                echo "\">
+                    <img src=\"/images/";
+                // line 31
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "post_img", []), "html", null, true);
                 echo "\" alt=\"\">
+                </a>
                 <p>";
-                // line 31
+                // line 33
                 echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "post_content", []), 0, 200), "html", null, true);
                 echo " ...</p>
-                <a class=\"button\" href=\"/blog/post/";
-                // line 32
+                <a class=\"btn btn-outline-dark my-2 my-sm-0\" href=\"/blog/post/";
+                // line 34
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "post_id", []), "html", null, true);
                 echo "\">Read More</a>
             </div>
         ";
             }
-            // line 35
+            // line 37
             echo "    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
-        echo "    ";
-        if ((isset($context["message"]) || array_key_exists("message", $context))) {
-            // line 37
-            echo "        <div>";
-            // line 38
-            echo twig_escape_filter($this->env, ($context["message"] ?? null), "html", null, true);
-            // line 39
-            echo "</div>
+        // line 38
+        echo "
     ";
-        }
-        // line 41
-        echo "    ";
-        if ((isset($context["error"]) || array_key_exists("error", $context))) {
+        // line 39
+        if (((isset($context["message"]) || array_key_exists("message", $context)) &&  !twig_test_empty(($context["message"] ?? null)))) {
+            // line 40
+            echo "        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
+            // line 41
+            echo twig_escape_filter($this->env, ($context["message"] ?? null));
             // line 42
-            echo "        <div>";
-            // line 43
-            echo twig_escape_filter($this->env, ($context["error"] ?? null), "html", null, true);
-            // line 44
-            echo "</div>
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
     ";
         }
-        // line 46
+        // line 47
+        echo "
+    ";
+        // line 48
+        if (((isset($context["error"]) || array_key_exists("error", $context)) &&  !twig_test_empty(($context["error"] ?? null)))) {
+            // line 49
+            echo "        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+            // line 50
+            echo twig_escape_filter($this->env, ($context["error"] ?? null));
+            // line 51
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
+        }
+        // line 56
         echo "</div>
 ";
-        // line 47
+        // line 57
         echo twig_include($this->env, $context, "footer.html");
     }
 
@@ -145,7 +160,7 @@ class __TwigTemplate_f4461d24428ec6d8aa91c93cdfc13f6b6245df574348a2d637603b68c08
 
     public function getDebugInfo()
     {
-        return array (  133 => 47,  130 => 46,  126 => 44,  124 => 43,  122 => 42,  119 => 41,  115 => 39,  113 => 38,  111 => 37,  108 => 36,  102 => 35,  96 => 32,  92 => 31,  88 => 30,  84 => 29,  80 => 28,  76 => 27,  71 => 26,  68 => 25,  64 => 24,  60 => 23,  35 => 1,);
+        return array (  148 => 57,  145 => 56,  138 => 51,  136 => 50,  134 => 49,  132 => 48,  129 => 47,  122 => 42,  120 => 41,  118 => 40,  116 => 39,  113 => 38,  107 => 37,  101 => 34,  97 => 33,  92 => 31,  88 => 30,  84 => 29,  80 => 28,  76 => 27,  71 => 26,  68 => 25,  64 => 24,  60 => 23,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -179,20 +194,30 @@ class __TwigTemplate_f4461d24428ec6d8aa91c93cdfc13f6b6245df574348a2d637603b68c08
                 <h1>{{ p.post_title|e }}</h1>
                 <p>by {{ p.post_author|e }}</p>
                 <p>Posted on {{ p.post_date|e|date(\"m/d/Y\" ) }}</p>
-                <img src=\"/images/{{ p.post_img }}\" alt=\"\">
+                <a href=\"/blog/post/{{ p.post_id }}\">
+                    <img src=\"/images/{{ p.post_img }}\" alt=\"\">
+                </a>
                 <p>{{ p.post_content|slice(0, 200) }} ...</p>
-                <a class=\"button\" href=\"/blog/post/{{ p.post_id }}\">Read More</a>
+                <a class=\"btn btn-outline-dark my-2 my-sm-0\" href=\"/blog/post/{{ p.post_id }}\">Read More</a>
             </div>
         {% endif %}
     {% endfor %}
-    {% if message is defined %}
-        <div>
-            {{- message -}}
+
+    {% if message is defined and message is not empty %}
+        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+            {{- message|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
         </div>
     {% endif %}
-    {% if error is defined %}
-        <div>
-            {{- error -}}
+
+    {% if error is defined and error is not empty %}
+        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+            {{- error|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
         </div>
     {% endif %}
 </div>

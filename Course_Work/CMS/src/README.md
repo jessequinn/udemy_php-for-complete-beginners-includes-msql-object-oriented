@@ -5,7 +5,7 @@ This application is based on the slim framework. I have incorporated sessions, t
 
 Run this command from the directory in which you want to install your new Slim Framework application.
 
-    composer isnstall
+    composer install
 
 To run the application in development, you can run these commands 
 

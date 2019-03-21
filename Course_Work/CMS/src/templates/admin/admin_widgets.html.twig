@@ -1,92 +1,78 @@
-<div class="doc-section">
-    <div class="row">
-        <div class="three columns">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="three columns">
-                            <i class="fa fa-file-alt fa-3x"></i>
-                        </div>
-                        <div class="nine columns text-right">
-                            <div class='huge'>{{ published_post_count }}</div>
-                            <div>Posts</div>
-                        </div>
-                    </div>
-                </div>
+<div class="card-group">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <span class="float-left"><i class="fa fa-file-alt fa-3x"></i></span>
+                <h5 class="float-right">Posts</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <h4 class="card-text text-center ">{{ published_post_count }}</h4>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
                 <a href="{{ path_for('admin-list-posts') }}">
-                    <div class="panel-footer">
-                        <span class="u-pull-left">View Details</span>
-                        <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="u-cf"></div>
-                    </div>
+                    <span class="float-left">View Details</span>
+                    <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
                 </a>
+            </small>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <span class="float-left"><i class="fa fa-comments fa-3x"></i></span>
+                <h5 class="float-right">Comments</h5>
             </div>
         </div>
-        <div class="three columns">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="three columns">
-                            <i class="fa fa-comments fa-3x"></i>
-                        </div>
-                        <div class="nine columns text-right">
-                            <div class='huge'>{{ approved_comment_count }}</div>
-                            <div>Comments</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="card-body">
+            <h4 class="card-text text-center ">{{ approved_comment_count }}</h4>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
                 <a href="{{ path_for('admin-list-comments') }}">
-                    <div class="panel-footer">
-                        <span class="u-pull-left">View Details</span>
-                        <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="u-cf"></div>
-                    </div>
+                    <span class="float-left">View Details</span>
+                    <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
                 </a>
+            </small>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <span class="float-left"><i class="fa fa-user fa-3x"></i></span>
+                <h5 class="float-right">Users</h5>
             </div>
         </div>
-        <div class="three columns">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="three columns">
-                            <i class="fa fa-user fa-3x"></i>
-                        </div>
-                        <div class="nine columns text-right">
-                            <div class='huge'>{{ admin_user_count + subscriber_user_count }}</div>
-                            <div> Users</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="card-body">
+            <h4 class="card-text text-center ">{{ admin_user_count + subscriber_user_count }}</h4>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
                 <a href="{{ path_for('admin-list-users') }}">
-                    <div class="panel-footer">
-                        <span class="u-pull-left">View Details</span>
-                        <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="u-cf"></div>
-                    </div>
+                    <span class="float-left">View Details</span>
+                    <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
                 </a>
+            </small>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <span class="float-left"><i class="fa fa-list fa-3x"></i></span>
+                <h5 class="float-right">Categories</h5>
             </div>
         </div>
-        <div class="three columns">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="three columns">
-                            <i class="fa fa-list fa-3x"></i>
-                        </div>
-                        <div class="nine columns text-right">
-                            <div class='huge'>{{ category_count }}</div>
-                            <div>Categories</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="card-body">
+            <h4 class="card-text text-center ">{{ category_count }}</h4>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
                 <a href="{{ path_for('admin-list-categories') }}">
-                    <div class="panel-footer">
-                        <span class="u-pull-left">View Details</span>
-                        <span class="u-pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="u-cf"></div>
-                    </div>
+                    <span class="float-left">View Details</span>
+                    <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
                 </a>
-            </div>
+            </small>
         </div>
     </div>
 </div>

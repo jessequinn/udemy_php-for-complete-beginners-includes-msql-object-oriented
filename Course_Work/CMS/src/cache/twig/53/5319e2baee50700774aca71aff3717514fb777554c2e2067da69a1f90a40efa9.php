@@ -40,20 +40,22 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
     <!-- Google Font -->
     <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,300,600\" rel=\"stylesheet\" type=\"text/css\">
     <!-- CSS -->
-    <link rel=\"stylesheet\" href=\"/dist/css/normalize.css\">
-    <link rel=\"stylesheet\" href=\"/dist/css/skeleton.css\">
-    <link rel=\"stylesheet\" href=\"/dist/css/custom.css\">
     <!-- Bootstrap -->
-    ";
-        // line 14
-        echo "    <!--FONTAWESOME -->
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css\">
+    <link rel=\"stylesheet\" href=\"/dist/css/custom.css\">
+    <!--FONTAWESOME -->
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.2/css/all.css\"
           integrity=\"sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr\" crossorigin=\"anonymous\">
     <!-- JS -->
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
-    <script src=\"/dist/js/custom.js\"></script>
-    <!--Google Charts -->
+    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"
+            integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"
+            crossorigin=\"anonymous\"></script>
+     <!--Google Charts -->
     <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>
+    ";
+        // line 23
+        echo "    <script src=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js\"></script>
     <script type=\"text/javascript\">
         (function (\$, sr) {
             // debouncing function from John Hann
@@ -78,7 +80,8 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
                     timeout = setTimeout(delayed, threshold || 100);
                 };
-            }
+            };
+
             // smartresize
             jQuery.fn[sr] = function (fn) {
                 return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
@@ -88,27 +91,28 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
         google.charts.load('current', {'packages': ['bar']});
         google.charts.setOnLoadCallback(drawChart);";
-        // line 57
-        $context["key"] = [0 => "Published Posts", 1 => "Draft Posts", 2 => "Approved Comments", 3 => "Unapproved Comments", 4 => "Admins", 5 => "Subscribers", 6 => "Categories"];
-        // line 66
-        $context["value"] = [0 =>         // line 67
-($context["published_post_count"] ?? null), 1 =>         // line 68
-($context["draft_post_count"] ?? null), 2 =>         // line 69
-($context["approved_comment_count"] ?? null), 3 =>         // line 70
-($context["unapproved_comment_count"] ?? null), 4 =>         // line 71
-($context["admin_user_count"] ?? null), 5 =>         // line 72
-($context["subscriber_user_count"] ?? null), 6 =>         // line 73
+        // line 60
+        $context["key"] = [0 => "All Posts", 1 => "Published Posts", 2 => "Draft Posts", 3 => "Approved Comments", 4 => "Unapproved Comments", 5 => "Admins", 6 => "Subscribers", 7 => "Categories"];
+        // line 70
+        $context["value"] = [0 => (        // line 71
+($context["published_post_count"] ?? null) + ($context["draft_post_count"] ?? null)), 1 =>         // line 72
+($context["published_post_count"] ?? null), 2 =>         // line 73
+($context["draft_post_count"] ?? null), 3 =>         // line 74
+($context["approved_comment_count"] ?? null), 4 =>         // line 75
+($context["unapproved_comment_count"] ?? null), 5 =>         // line 76
+($context["admin_user_count"] ?? null), 6 =>         // line 77
+($context["subscriber_user_count"] ?? null), 7 =>         // line 78
 ($context["category_count"] ?? null)];
-        // line 76
+        // line 81
         echo "function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Data', 'Count'],
                 ";
-        // line 79
+        // line 84
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range(0, 6));
+        $context['_seq'] = twig_ensure_traversable(range(0, 7));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 80
+            // line 85
             echo "                ['";
             echo twig_escape_filter($this->env, (($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = ($context["key"] ?? null)) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[$context["i"]] ?? null) : null), "html", null, true);
             echo "',";
@@ -119,7 +123,7 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 82
+        // line 87
         echo "            ]);
 
             var options = {
@@ -133,10 +137,10 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
 
-            // resize instantly
-            \$(window).smartresize(function () {
-                chart.draw(data, options);
-            });
+            // // resize instantly
+            // \$(window).smartresize(function () {
+            //     chart.draw(data, options);
+            // });
         }
     </script>
 </head>
@@ -155,7 +159,7 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
     public function getDebugInfo()
     {
-        return array (  123 => 82,  112 => 80,  108 => 79,  103 => 76,  101 => 73,  100 => 72,  99 => 71,  98 => 70,  97 => 69,  96 => 68,  95 => 67,  94 => 66,  92 => 57,  49 => 14,  35 => 1,);
+        return array (  127 => 87,  116 => 85,  112 => 84,  107 => 81,  105 => 78,  104 => 77,  103 => 76,  102 => 75,  101 => 74,  100 => 73,  99 => 72,  98 => 71,  97 => 70,  95 => 60,  58 => 23,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -168,19 +172,21 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
     <!-- Google Font -->
     <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,300,600\" rel=\"stylesheet\" type=\"text/css\">
     <!-- CSS -->
-    <link rel=\"stylesheet\" href=\"/dist/css/normalize.css\">
-    <link rel=\"stylesheet\" href=\"/dist/css/skeleton.css\">
-    <link rel=\"stylesheet\" href=\"/dist/css/custom.css\">
     <!-- Bootstrap -->
-    {#<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">#}
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css\">
+    <link rel=\"stylesheet\" href=\"/dist/css/custom.css\">
     <!--FONTAWESOME -->
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.2/css/all.css\"
           integrity=\"sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr\" crossorigin=\"anonymous\">
     <!-- JS -->
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
-    <script src=\"/dist/js/custom.js\"></script>
-    <!--Google Charts -->
+    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"
+            integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"
+            crossorigin=\"anonymous\"></script>
+     <!--Google Charts -->
     <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>
+    {# https://simplemde.com/ #}
+    <script src=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js\"></script>
     <script type=\"text/javascript\">
         (function (\$, sr) {
             // debouncing function from John Hann
@@ -205,7 +211,8 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
                     timeout = setTimeout(delayed, threshold || 100);
                 };
-            }
+            };
+
             // smartresize
             jQuery.fn[sr] = function (fn) {
                 return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
@@ -217,6 +224,7 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
         google.charts.setOnLoadCallback(drawChart);
 
         {%- set key = [
+            'All Posts',
             'Published Posts',
             'Draft Posts',
             'Approved Comments',
@@ -226,6 +234,7 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
             'Categories'
         ] -%}
         {%- set value = [
+            published_post_count + draft_post_count,
             published_post_count,
             draft_post_count,
             approved_comment_count,
@@ -238,7 +247,7 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Data', 'Count'],
-                {% for i in 0..6 %}
+                {% for i in 0..7 %}
                 ['{{ key[i] }}',{{ value[i] }}],
                 {% endfor %}
             ]);
@@ -254,10 +263,10 @@ class __TwigTemplate_4ced47eecec8ef8dd588123b608e3057db303693e133f5afd2199742402
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
 
-            // resize instantly
-            \$(window).smartresize(function () {
-                chart.draw(data, options);
-            });
+            // // resize instantly
+            // \$(window).smartresize(function () {
+            //     chart.draw(data, options);
+            // });
         }
     </script>
 </head>

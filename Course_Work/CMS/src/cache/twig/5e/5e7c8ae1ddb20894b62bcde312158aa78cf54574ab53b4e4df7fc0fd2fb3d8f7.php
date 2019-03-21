@@ -32,29 +32,37 @@ class __TwigTemplate_98c26511981c0bea5670483daf02d82b071cd35ac531fa6e8d17ba628ff
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo "<div class=\"navbar-spacer\"></div>
-<nav class=\"navbar\">
-    <div class=\"container\">
-        <ul class=\"navbar-list\">
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"#intro\">Intro</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"resume.html\">Resume</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"publications.html\">Publications</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/blog\">Blog</a></li>
-        </ul>
-        <ul class=\"navbar-list u-pull-right\">
+        echo "<nav class=\"navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom border-dark\">
+    <a class=\"navbar-brand\" href=\"/admin\">
+        <i class=\"fab fa-dochub\"></i>ashboard
+    </a>
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\"
+            aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+    </button>
+    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+        <ul class=\"navbar-nav mr-auto\">
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"#intro\">Intro</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"resume.html\">Resume</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"publications.html\">Publications</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"/blog\"><i class=\"fab fa-blogger-b\"></i>log</a></li>
             ";
-        // line 11
+        // line 15
         if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "user_username", [], "any", true, true)) {
-            // line 12
-            echo "                <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/logout\">Logout</a></li>
+            // line 16
+            echo "                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/logout\">Logout</a></li>
             ";
         } else {
-            // line 14
-            echo "                <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/login\">Login</a></li>
+            // line 18
+            echo "                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/login\">Login</a></li>
             ";
         }
-        // line 16
+        // line 20
         echo "        </ul>
+        <form class=\"form-inline mt-2 mt-md-0\">
+            <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">
+            <button class=\"btn btn-outline-dark my-2 my-sm-0\" type=\"submit\">Search</button>
+        </form>
     </div>
 </nav>";
     }
@@ -71,27 +79,35 @@ class __TwigTemplate_98c26511981c0bea5670483daf02d82b071cd35ac531fa6e8d17ba628ff
 
     public function getDebugInfo()
     {
-        return array (  57 => 16,  53 => 14,  49 => 12,  47 => 11,  35 => 1,);
+        return array (  61 => 20,  57 => 18,  53 => 16,  51 => 15,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"navbar-spacer\"></div>
-<nav class=\"navbar\">
-    <div class=\"container\">
-        <ul class=\"navbar-list\">
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"#intro\">Intro</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"resume.html\">Resume</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"publications.html\">Publications</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/blog\">Blog</a></li>
-        </ul>
-        <ul class=\"navbar-list u-pull-right\">
+        return new Source("<nav class=\"navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom border-dark\">
+    <a class=\"navbar-brand\" href=\"/admin\">
+        <i class=\"fab fa-dochub\"></i>ashboard
+    </a>
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\"
+            aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+    </button>
+    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
+        <ul class=\"navbar-nav mr-auto\">
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"#intro\">Intro</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"resume.html\">Resume</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"publications.html\">Publications</a></li>
+            <li class=\"nav-item\"><a class=\"nav-link\" href=\"/blog\"><i class=\"fab fa-blogger-b\"></i>log</a></li>
             {% if session.user_username is defined %}
-                <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/logout\">Logout</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/logout\">Logout</a></li>
             {% else %}
-                <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/login\">Login</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/login\">Login</a></li>
             {% endif %}
         </ul>
+        <form class=\"form-inline mt-2 mt-md-0\">
+            <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">
+            <button class=\"btn btn-outline-dark my-2 my-sm-0\" type=\"submit\">Search</button>
+        </form>
     </div>
 </nav>", "nav.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/nav.html.twig");
     }

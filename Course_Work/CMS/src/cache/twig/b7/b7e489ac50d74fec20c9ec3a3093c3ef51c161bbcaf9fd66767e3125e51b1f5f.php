@@ -51,12 +51,12 @@ class __TwigTemplate_53ea1a931709dc630db142f30ec1924ef3c3f08ed0e0c541dee937d2743
         echo "
     </div>
     <div class=\"docs-section\">
-        <div id=\"columnchart_material\" class=\"docs-section u-max-full-width\"></div>
+        <div id=\"columnchart_material\"></div>
     </div>
 </div>
 ";
         // line 13
-        echo twig_include($this->env, $context, "footer.html");
+        echo twig_include($this->env, $context, "admin/admin_footer.html");
     }
 
     public function getTemplateName()
@@ -85,9 +85,9 @@ class __TwigTemplate_53ea1a931709dc630db142f30ec1924ef3c3f08ed0e0c541dee937d2743
         {{ include('admin/admin_widgets.html.twig') }}
     </div>
     <div class=\"docs-section\">
-        <div id=\"columnchart_material\" class=\"docs-section u-max-full-width\"></div>
+        <div id=\"columnchart_material\"></div>
     </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_index.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_index.html.twig");
+{{ include('admin/admin_footer.html') }}", "admin/admin_index.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_index.html.twig");
     }
 }

@@ -32,7 +32,7 @@ class __TwigTemplate_3e65c0762e1b1a07ce1137af18bd4c311e390a775f8bf613fc5e0b34b15
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo twig_include($this->env, $context, "header.html");
+        echo twig_include($this->env, $context, "admin/admin_header.html.twig");
         echo "
 <div class=\"container\">
     ";
@@ -46,87 +46,85 @@ class __TwigTemplate_3e65c0762e1b1a07ce1137af18bd4c311e390a775f8bf613fc5e0b34b15
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("add-update-category"), "html", null, true);
         echo "\" method=\"post\">
-            <div class=\"row\">
-                <div class=\"six columns\">
-                    ";
-        // line 10
+            <div class=\"form-group\">
+                ";
+        // line 9
         if ((isset($context["category_edit"]) || array_key_exists("category_edit", $context))) {
-            // line 11
-            echo "                        <label for=\"cat_title\">Edit Category</label>
-                    ";
+            // line 10
+            echo "                    <label for=\"cat_title\">Edit Category</label>
+                ";
         } else {
-            // line 13
-            echo "                        <label for=\"cat_title\">Add Category</label>
-                    ";
+            // line 12
+            echo "                    <label for=\"cat_title\">Add Category</label>
+                ";
         }
+        // line 14
+        echo "                <input class=\"form-control\" type=\"text\" id=\"cat_title\" name=\"cat_title\"
+                        ";
         // line 15
-        echo "                    <input class=\"u-full-width\" type=\"text\" id=\"cat_title\" name=\"cat_title\"
-                            ";
-        // line 16
         if ((isset($context["category_edit"]) || array_key_exists("category_edit", $context))) {
-            // line 17
-            echo "                                value=\"";
+            // line 16
+            echo "                            value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category_edit"] ?? null), "cat_title", []), "html", null, true);
             echo "\"
-                            ";
+                        ";
         }
-        // line 19
-        echo "                    >
-                    ";
+        // line 18
+        echo "                >
+            </div>
+            ";
         // line 20
         if ((isset($context["category_edit"]) || array_key_exists("category_edit", $context))) {
             // line 21
-            echo "                        <input type=\"hidden\" value=\"";
+            echo "                <input type=\"hidden\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category_edit"] ?? null), "cat_id", []), "html", null, true);
             echo "\" name=\"cat_id\" id=\"cat_id\">
-                    ";
+            ";
         }
         // line 23
-        echo "                </div>
-            </div>
-            ";
-        // line 25
+        echo "            ";
         if ((isset($context["category_edit"]) || array_key_exists("category_edit", $context))) {
-            // line 26
-            echo "                <input class=\"button-primary\" type=\"submit\" name=\"submit\" value=\"Edit Category\">
+            // line 24
+            echo "                <input class=\"btn btn-primary\" type=\"submit\" name=\"submit\" value=\"Edit Category\">
             ";
         } else {
-            // line 28
-            echo "                <input class=\"button-primary\" type=\"submit\" name=\"submit\" value=\"Add Category\">
+            // line 26
+            echo "                <input class=\"btn btn-primary\" type=\"submit\" name=\"submit\" value=\"Add Category\">
             ";
         }
-        // line 30
+        // line 28
         echo "        </form>
     </div>
+
     <div class=\"docs-section\">
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
                 ";
-        // line 37
-        echo "                <th>Title</th>
-                <th colspan=\"2\">Operations</th>
+        // line 36
+        echo "                <th scope=\"col\">Title</th>
+                <th scope=\"col\" colspan=\"2\">Operations</th>
             </tr>
             </thead>
             <tbody>
             ";
-        // line 42
+        // line 41
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["categories"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
-            // line 43
+            // line 42
             echo "                <tr>
                     ";
-            // line 45
+            // line 44
             echo "                    <td>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "cat_title", []), "html", null, true);
             echo "</td>
                     <td><a href=\"/admin/categories/edit/";
-            // line 46
+            // line 45
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "cat_id", []), "html", null, true);
             echo "\">Edit</a></td>
                     <td><a href=\"/admin/categories/delete/";
-            // line 47
+            // line 46
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "cat_id", []), "html", null, true);
             echo "\">Delete</a></td>
                 </tr>
@@ -135,14 +133,47 @@ class __TwigTemplate_3e65c0762e1b1a07ce1137af18bd4c311e390a775f8bf613fc5e0b34b15
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 50
+        // line 49
         echo "            </tbody>
         </table>
     </div>
+
+    ";
+        // line 53
+        if (((isset($context["message"]) || array_key_exists("message", $context)) &&  !twig_test_empty(($context["message"] ?? null)))) {
+            // line 54
+            echo "        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
+            // line 55
+            echo twig_escape_filter($this->env, ($context["message"] ?? null));
+            // line 56
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
+        }
+        // line 61
+        echo "
+    ";
+        // line 62
+        if (((isset($context["error"]) || array_key_exists("error", $context)) &&  !twig_test_empty(($context["error"] ?? null)))) {
+            // line 63
+            echo "        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+            // line 64
+            echo twig_escape_filter($this->env, ($context["error"] ?? null));
+            // line 65
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
+        }
+        // line 70
+        echo "
 </div>
 ";
-        // line 54
-        echo twig_include($this->env, $context, "footer.html");
+        // line 72
+        echo twig_include($this->env, $context, "admin/admin_footer.html");
     }
 
     public function getTemplateName()
@@ -157,49 +188,48 @@ class __TwigTemplate_3e65c0762e1b1a07ce1137af18bd4c311e390a775f8bf613fc5e0b34b15
 
     public function getDebugInfo()
     {
-        return array (  145 => 54,  139 => 50,  130 => 47,  126 => 46,  121 => 45,  118 => 43,  114 => 42,  107 => 37,  99 => 30,  95 => 28,  91 => 26,  89 => 25,  85 => 23,  79 => 21,  77 => 20,  74 => 19,  68 => 17,  66 => 16,  63 => 15,  59 => 13,  55 => 11,  53 => 10,  47 => 7,  40 => 3,  35 => 1,);
+        return array (  176 => 72,  172 => 70,  165 => 65,  163 => 64,  161 => 63,  159 => 62,  156 => 61,  149 => 56,  147 => 55,  145 => 54,  143 => 53,  137 => 49,  128 => 46,  124 => 45,  119 => 44,  116 => 42,  112 => 41,  105 => 36,  96 => 28,  92 => 26,  88 => 24,  85 => 23,  79 => 21,  77 => 20,  73 => 18,  67 => 16,  65 => 15,  62 => 14,  58 => 12,  54 => 10,  52 => 9,  47 => 7,  40 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{{ include('header.html') }}
+        return new Source("{{ include('admin/admin_header.html.twig') }}
 <div class=\"container\">
     {{ include('admin/admin_nav.html.twig') }}
     <div class=\"docs-section\">
         <h1>Categories Section</h1>
         <p>You may also edit or delete individual categories.</p>
         <form action=\"{{ path_for('add-update-category') }}\" method=\"post\">
-            <div class=\"row\">
-                <div class=\"six columns\">
-                    {% if category_edit is defined %}
-                        <label for=\"cat_title\">Edit Category</label>
-                    {% else %}
-                        <label for=\"cat_title\">Add Category</label>
-                    {% endif %}
-                    <input class=\"u-full-width\" type=\"text\" id=\"cat_title\" name=\"cat_title\"
-                            {% if category_edit is defined %}
-                                value=\"{{ category_edit.cat_title }}\"
-                            {% endif %}
-                    >
-                    {% if category_edit is defined %}
-                        <input type=\"hidden\" value=\"{{ category_edit.cat_id }}\" name=\"cat_id\" id=\"cat_id\">
-                    {% endif %}
-                </div>
+            <div class=\"form-group\">
+                {% if category_edit is defined %}
+                    <label for=\"cat_title\">Edit Category</label>
+                {% else %}
+                    <label for=\"cat_title\">Add Category</label>
+                {% endif %}
+                <input class=\"form-control\" type=\"text\" id=\"cat_title\" name=\"cat_title\"
+                        {% if category_edit is defined %}
+                            value=\"{{ category_edit.cat_title }}\"
+                        {% endif %}
+                >
             </div>
             {% if category_edit is defined %}
-                <input class=\"button-primary\" type=\"submit\" name=\"submit\" value=\"Edit Category\">
+                <input type=\"hidden\" value=\"{{ category_edit.cat_id }}\" name=\"cat_id\" id=\"cat_id\">
+            {% endif %}
+            {% if category_edit is defined %}
+                <input class=\"btn btn-primary\" type=\"submit\" name=\"submit\" value=\"Edit Category\">
             {% else %}
-                <input class=\"button-primary\" type=\"submit\" name=\"submit\" value=\"Add Category\">
+                <input class=\"btn btn-primary\" type=\"submit\" name=\"submit\" value=\"Add Category\">
             {% endif %}
         </form>
     </div>
+
     <div class=\"docs-section\">
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
                 {#<th>ID</th>#}
-                <th>Title</th>
-                <th colspan=\"2\">Operations</th>
+                <th scope=\"col\">Title</th>
+                <th scope=\"col\" colspan=\"2\">Operations</th>
             </tr>
             </thead>
             <tbody>
@@ -214,7 +244,26 @@ class __TwigTemplate_3e65c0762e1b1a07ce1137af18bd4c311e390a775f8bf613fc5e0b34b15
             </tbody>
         </table>
     </div>
+
+    {% if message is defined and message is not empty %}
+        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+            {{- message|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% if error is defined and error is not empty %}
+        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+            {{- error|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
 </div>
-{{ include('footer.html') }}", "admin/admin_categories.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_categories.html.twig");
+{{ include('admin/admin_footer.html') }}", "admin/admin_categories.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_categories.html.twig");
     }
 }

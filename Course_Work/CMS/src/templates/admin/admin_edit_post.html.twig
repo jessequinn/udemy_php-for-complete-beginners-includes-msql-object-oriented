@@ -2,47 +2,66 @@
 <div class="container">
     {{ include('admin/admin_nav.html.twig') }}
     <div class="docs-section">
-        <h1>Post Section</h1>
-        <p>You may also edit or delete individual categories.</p>
-        <form action="{{ path_for('admin-add-post') }}" method="post" enctype="multipart/form-data">
+        <h1>Edit Post Section</h1>
+        <form action="{{ path_for('admin-edit-post') }}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="post_title">Title</label>
-                <input class="form-control" type="text" id="post_title" name="post_title">
+                <input class="form-control" type="text"
+                       id="post_title" name="post_title"
+                       value="{{ post_data.post_title }}">
             </div>
             <div class="form-group">
                 <label for="post_category">Category</label>
                 <select class="form-control" id="post_category" name="post_category">
-                    {% if categories is defined %}
-                        {% for c in categories %}
-                            <option value="{{ c.cat_id }}">{{ c.cat_title }}</option>
-                        {% endfor %}
-                    {% endif %}
+                    {% for c in categories %}
+                        <option value="{{ c.cat_id }}"
+                                {% if c.cat_id == post_data.post_category_id %}
+                                    {{ 'selected' }}
+                                {% endif %}
+                        >{{ c.cat_title }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="post_author">Author</label>
-                <input class="form-control" type="text" id="post_title" name="post_author">
+                <input class="form-control" type="text"
+                       id="post_title" name="post_author" value="{{ post_data.post_author }}">
             </div>
             <div class="form-group">
                 <label for="post_status">Status</label>
                 <select class="form-control" id="post_status" name="post_status">
-                    <option value="Draft">Draft</option>
-                    <option value="Published">Published</option>
+                    <option value="Draft"
+                            {% if post_data.post_status == 'Draft' %}
+                                {{ 'selected' }}
+                            {% endif %}
+                    >Draft
+                    </option>
+                    <option value="Published"
+                            {% if post_data.post_status == 'Published' %}
+                                {{ 'selected' }}
+                            {% endif %}
+                    >Published
+                    </option>
                 </select>
             </div>
+            <input type="hidden" name="post_img_org" value="{{ post_data.post_img }}">
+            <img src="/images/{{ post_data.post_img }}" alt="image">
+            <input type="hidden" value="{{ post_data.post_id }}" name="post_id">
             <div class="form-group">
                 <label for="post_img">Image</label>
                 <input type="file" class="form-control-file" id="post_img" name="post_img">
             </div>
             <div class="form-group">
                 <label for="post_tags">Tags</label>
-                <input class="form-control" type="text" id="post_tags" name="post_tags">
+                <input class="form-control" type="text"
+                       id="post_tags" name="post_tags" value="{{ post_data.post_tags|e }}">
             </div>
             <div class="form-group">
                 <label for="post_content">Content</label>
-                <textarea class="form-control" name="post_content" id="post_content"></textarea>
+                <textarea class="form-control"
+                          name="post_content" id="post_content">{{ post_data.post_content|e }}</textarea>
             </div>
-            <input class="btn btn-primary" type="submit" name="submit" value="Add Post">
+            <input class="btn btn-primary" type="submit" name="submit" value="Edit Post">
         </form>
     </div>
 

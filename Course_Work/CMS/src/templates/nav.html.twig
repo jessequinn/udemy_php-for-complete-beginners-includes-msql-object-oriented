@@ -1,18 +1,26 @@
-<div class="navbar-spacer"></div>
-<nav class="navbar">
-    <div class="container">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a class="navbar-link" href="#intro">Intro</a></li>
-            <li class="navbar-item"><a class="navbar-link" href="resume.html">Resume</a></li>
-            <li class="navbar-item"><a class="navbar-link" href="publications.html">Publications</a></li>
-            <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
-        </ul>
-        <ul class="navbar-list u-pull-right">
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom border-dark">
+    <a class="navbar-brand" href="/admin">
+        <i class="fab fa-dochub"></i>ashboard
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="#intro">Intro</a></li>
+            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+            <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog"><i class="fab fa-blogger-b"></i>log</a></li>
             {% if session.user_username is defined %}
-                <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
             {% else %}
-                <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
             {% endif %}
         </ul>
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </nav>

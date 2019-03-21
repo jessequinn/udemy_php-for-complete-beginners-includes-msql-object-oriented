@@ -16,10 +16,14 @@ $app->get('/admin/posts', 'Admin\PostController:listPosts')
     ->setName('admin-list-posts');
 $app->get('/admin/posts/delete/{id}', 'Admin\PostController:deletePost')
     ->setName('admin-delete-post');
-$app->get('/admin/posts/edit/{id}', 'Admin\PostController:editCategory')
+$app->get('/admin/posts/add', 'Admin\PostController:addPostForm')
+    ->setName('admin-add-post-form');
+$app->post('/admin/posts/add/submit', 'Admin\PostController:addPost')
+    ->setName('admin-add-post');
+$app->get('/admin/posts/edit/{id}', 'Admin\PostController:editPostForm')
+    ->setName('admin-edit-post-form');
+$app->post('/admin/posts/edit/submit', 'Admin\PostController:editPost')
     ->setName('admin-edit-post');
-$app->any('/admin/posts/add', 'Admin\PostController:addUpdatePost')
-    ->setName('admin-add-update-post');
 
 
 $app->get('/blog', 'Blog\BlogController:listPosts')
@@ -39,7 +43,7 @@ $app->post('/admin/categories/add', 'Admin\CategoryController:addUpdateCategory'
 $app->get('/admin/categories/edit/{id}', 'Admin\CategoryController:editCategory')
     ->setName('edit-category');
 
-// Comment seection for admin
+// Comment section for admin
 $app->get('/admin/comments', 'Admin\CommentController:listComments')
     ->setName('admin-list-comments');
 $app->get('/admin/comments/delete/{id}', 'Admin\CommentController:deleteComment')

@@ -36,6 +36,8 @@ final class CategoryController
         return $this->view->render($response, 'admin/admin_categories.html.twig', [
             'categories' => Category::orderBy('cat_title', 'asc')->get(),
             'session' => $session,
+            'message' => $this->flash->getFirstMessage('message'),
+            'error' => $this->flash->getFirstMessage('error'),
         ]);
     }
 
@@ -79,11 +81,15 @@ final class CategoryController
                     if ($category_edit) {
                         $category_edit->cat_title = $data['cat_title'];
                         $category_edit->save();
+                        $this->flash->addMessage('message', 'Message: category edited');
                     }
                 } else {
                     $categoryDate = array('cat_title' => $data['cat_title']);
                     Category::firstOrCreate($categoryDate);
+                    $this->flash->addMessage('message', 'Message: category created');
                 }
+            } else {
+                $this->flash->addMessage('error', 'Error: category did not validate');
             }
 
             return $response->withRedirect($this->router->pathFor('admin-list-categories'));

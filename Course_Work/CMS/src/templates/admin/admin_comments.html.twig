@@ -1,21 +1,21 @@
-{{ include('header.html') }}
+{{ include('admin/admin_header.html.twig') }}
 <div class="container">
     {{ include('admin/admin_nav.html.twig') }}
     <div class="docs-section ">
         <h1>Comments Section</h1>
         <p>You may edit or delete individual comments.</p>
-        <table class="u-full-width">
+        <table class="table table-sm table-hover table-dark">
             <thead>
             <tr>
-                {#<th>ID</th>#}
-                <th>Author</th>
-                <th>Comment</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>In Response To</th>
-                <th>Date</th>
-                <th>Approve</th>
-                <th>Unapprove</th>
+                {#<th scope="col">ID</th>#}
+                <th scope="col">Author</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">In Response To</th>
+                <th scope="col">Date</th>
+                <th scope="col">Approve</th>
+                <th scope="col">Unapprove</th>
                 <th colspan="2">Operations</th>
             </tr>
             </thead>
@@ -44,5 +44,23 @@
             </tbody>
         </table>
     </div>
+
+    {% if message is defined and message is not empty %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{- message|e -}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% if error is defined and error is not empty %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{- error|e -}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 </div>
-{{ include('footer.html') }}
+{{ include('admin/admin_footer.html') }}

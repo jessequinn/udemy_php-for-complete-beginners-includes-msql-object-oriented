@@ -32,15 +32,18 @@ class __TwigTemplate_1abe2abf06d9cb980f3d3d926c1a7bca1198025317be76d1fb3a05a3c50
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo "        <!--<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"-->
-                <!--integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
-        <!--<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"-->
-                <!--integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
-        <!--<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"-->
-                <!--integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
+        echo "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"
+                integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"
+                crossorigin=\"anonymous\"></script>
+        <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"
+                integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"
+                crossorigin=\"anonymous\"></script>
+        <script>
+            new SimpleMDE({
+                element: document.getElementById(\"comment_content\"),
+                spellChecker: false,
+            });
+        </script>
     </body>
 </html>";
     }
@@ -57,15 +60,18 @@ class __TwigTemplate_1abe2abf06d9cb980f3d3d926c1a7bca1198025317be76d1fb3a05a3c50
 
     public function getSourceContext()
     {
-        return new Source("        <!--<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"-->
-                <!--integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
-        <!--<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"-->
-                <!--integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
-        <!--<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"-->
-                <!--integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"-->
-                <!--crossorigin=\"anonymous\"></script>-->
+        return new Source("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"
+                integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"
+                crossorigin=\"anonymous\"></script>
+        <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"
+                integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"
+                crossorigin=\"anonymous\"></script>
+        <script>
+            new SimpleMDE({
+                element: document.getElementById(\"comment_content\"),
+                spellChecker: false,
+            });
+        </script>
     </body>
 </html>", "footer.html", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/footer.html");
     }

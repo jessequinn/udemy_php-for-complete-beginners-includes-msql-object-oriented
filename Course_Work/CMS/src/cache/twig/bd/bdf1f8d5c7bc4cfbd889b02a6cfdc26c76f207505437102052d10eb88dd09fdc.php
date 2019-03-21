@@ -32,7 +32,7 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo twig_include($this->env, $context, "header.html");
+        echo twig_include($this->env, $context, "admin/admin_header.html.twig");
         echo "
 <div class=\"container\">
     ";
@@ -42,19 +42,19 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
     <div class=\"docs-section \">
         <h1>Comments Section</h1>
         <p>You may edit or delete individual comments.</p>
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
                 ";
         // line 11
-        echo "                <th>Author</th>
-                <th>Comment</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>In Response To</th>
-                <th>Date</th>
-                <th>Approve</th>
-                <th>Unapprove</th>
+        echo "                <th scope=\"col\">Author</th>
+                <th scope=\"col\">Comment</th>
+                <th scope=\"col\">Email</th>
+                <th scope=\"col\">Status</th>
+                <th scope=\"col\">In Response To</th>
+                <th scope=\"col\">Date</th>
+                <th scope=\"col\">Approve</th>
+                <th scope=\"col\">Unapprove</th>
                 <th colspan=\"2\">Operations</th>
             </tr>
             </thead>
@@ -141,10 +141,42 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
         echo "            </tbody>
         </table>
     </div>
-</div>
-";
+
+    ";
         // line 48
-        echo twig_include($this->env, $context, "footer.html");
+        if (((isset($context["message"]) || array_key_exists("message", $context)) &&  !twig_test_empty(($context["message"] ?? null)))) {
+            // line 49
+            echo "        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
+            // line 50
+            echo twig_escape_filter($this->env, ($context["message"] ?? null));
+            // line 51
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
+        }
+        // line 56
+        echo "
+    ";
+        // line 57
+        if (((isset($context["error"]) || array_key_exists("error", $context)) &&  !twig_test_empty(($context["error"] ?? null)))) {
+            // line 58
+            echo "        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+            // line 59
+            echo twig_escape_filter($this->env, ($context["error"] ?? null));
+            // line 60
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    ";
+        }
+        // line 65
+        echo "</div>
+";
+        // line 66
+        echo twig_include($this->env, $context, "admin/admin_footer.html");
     }
 
     public function getTemplateName()
@@ -159,29 +191,29 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
 
     public function getDebugInfo()
     {
-        return array (  147 => 48,  141 => 44,  132 => 41,  128 => 40,  124 => 39,  120 => 38,  116 => 37,  113 => 36,  107 => 35,  101 => 33,  98 => 32,  94 => 31,  88 => 30,  84 => 29,  80 => 28,  76 => 27,  71 => 26,  68 => 24,  64 => 23,  50 => 11,  40 => 3,  35 => 1,);
+        return array (  179 => 66,  176 => 65,  169 => 60,  167 => 59,  165 => 58,  163 => 57,  160 => 56,  153 => 51,  151 => 50,  149 => 49,  147 => 48,  141 => 44,  132 => 41,  128 => 40,  124 => 39,  120 => 38,  116 => 37,  113 => 36,  107 => 35,  101 => 33,  98 => 32,  94 => 31,  88 => 30,  84 => 29,  80 => 28,  76 => 27,  71 => 26,  68 => 24,  64 => 23,  50 => 11,  40 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{{ include('header.html') }}
+        return new Source("{{ include('admin/admin_header.html.twig') }}
 <div class=\"container\">
     {{ include('admin/admin_nav.html.twig') }}
     <div class=\"docs-section \">
         <h1>Comments Section</h1>
         <p>You may edit or delete individual comments.</p>
-        <table class=\"u-full-width\">
+        <table class=\"table table-sm table-hover table-dark\">
             <thead>
             <tr>
-                {#<th>ID</th>#}
-                <th>Author</th>
-                <th>Comment</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>In Response To</th>
-                <th>Date</th>
-                <th>Approve</th>
-                <th>Unapprove</th>
+                {#<th scope=\"col\">ID</th>#}
+                <th scope=\"col\">Author</th>
+                <th scope=\"col\">Comment</th>
+                <th scope=\"col\">Email</th>
+                <th scope=\"col\">Status</th>
+                <th scope=\"col\">In Response To</th>
+                <th scope=\"col\">Date</th>
+                <th scope=\"col\">Approve</th>
+                <th scope=\"col\">Unapprove</th>
                 <th colspan=\"2\">Operations</th>
             </tr>
             </thead>
@@ -210,7 +242,25 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
             </tbody>
         </table>
     </div>
+
+    {% if message is defined and message is not empty %}
+        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+            {{- message|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% if error is defined and error is not empty %}
+        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+            {{- error|e -}}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 </div>
-{{ include('footer.html') }}", "admin/admin_comments.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_comments.html.twig");
+{{ include('admin/admin_footer.html') }}", "admin/admin_comments.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_comments.html.twig");
     }
 }

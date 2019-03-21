@@ -32,7 +32,7 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo twig_include($this->env, $context, "header.html");
+        echo twig_include($this->env, $context, "admin/admin_header.html.twig");
         echo "
 <div class=\"container\">
     ";
@@ -112,7 +112,7 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
 </div>
 ";
         // line 53
-        echo twig_include($this->env, $context, "footer.html");
+        echo twig_include($this->env, $context, "admin/admin_footer.html");
     }
 
     public function getTemplateName()
@@ -132,7 +132,7 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
 
     public function getSourceContext()
     {
-        return new Source("{{ include('header.html') }}
+        return new Source("{{ include('admin/admin_header.html.twig') }}
 <div class=\"container\">
     {{ include('admin/admin_nav.html.twig') }}
     <div class=\"docs-section\">
@@ -184,6 +184,6 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
         {% endif %}
     </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_add_user.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_add_user.html.twig");
+{{ include('admin/admin_footer.html') }}", "admin/admin_add_user.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_add_user.html.twig");
     }
 }
