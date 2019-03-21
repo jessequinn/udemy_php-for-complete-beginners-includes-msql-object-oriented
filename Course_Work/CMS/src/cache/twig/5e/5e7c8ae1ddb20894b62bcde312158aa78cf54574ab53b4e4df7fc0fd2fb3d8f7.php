@@ -93,6 +93,6 @@ class __TwigTemplate_98c26511981c0bea5670483daf02d82b071cd35ac531fa6e8d17ba628ff
             {% endif %}
         </ul>
     </div>
-</nav>", "nav.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/nav.html.twig");
+</nav>", "nav.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/nav.html.twig");
     }
 }

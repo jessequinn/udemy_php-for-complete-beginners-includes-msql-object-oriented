@@ -54,7 +54,7 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
                     <label for=\"user_role\">Role</label>
                     <select class=\"u-full-width\" id=\"user_role\" name=\"user_role\">
                         <option value=\"Admin\">Admin</option>
-                        <option value=\"User\">User</option>
+                        <option value=\"Subscriber\">Subscriber</option>
                     </select>
                 </div>
             </div>
@@ -147,7 +147,7 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
                     <label for=\"user_role\">Role</label>
                     <select class=\"u-full-width\" id=\"user_role\" name=\"user_role\">
                         <option value=\"Admin\">Admin</option>
-                        <option value=\"User\">User</option>
+                        <option value=\"Subscriber\">Subscriber</option>
                     </select>
                 </div>
             </div>
@@ -184,6 +184,6 @@ class __TwigTemplate_2e78373cb214d64572aeb1f19c1bc5d5bfc13e874a401efd15786ca7ed1
         {% endif %}
     </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_add_user.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_add_user.html.twig");
+{{ include('footer.html') }}", "admin/admin_add_user.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_add_user.html.twig");
     }
 }

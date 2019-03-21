@@ -121,9 +121,34 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
         echo "            </tbody>
         </table>
     </div>
+    <div class=\"row\">
+        ";
+        // line 42
+        if (((isset($context["message"]) || array_key_exists("message", $context)) &&  !twig_test_empty(($context["message"] ?? null)))) {
+            // line 43
+            echo "            <div class=\"flash_message u-max-full-width\">";
+            // line 44
+            echo twig_escape_filter($this->env, ($context["message"] ?? null));
+            // line 45
+            echo "</div>
+        ";
+        }
+        // line 47
+        echo "        ";
+        if (((isset($context["error"]) || array_key_exists("error", $context)) &&  !twig_test_empty(($context["error"] ?? null)))) {
+            // line 48
+            echo "            <div class=\"flash_error\">";
+            // line 49
+            echo twig_escape_filter($this->env, ($context["error"] ?? null));
+            // line 50
+            echo "</div>
+        ";
+        }
+        // line 52
+        echo "    </div>
 </div>
 ";
-        // line 42
+        // line 54
         echo twig_include($this->env, $context, "footer.html");
     }
 
@@ -139,7 +164,7 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
 
     public function getDebugInfo()
     {
-        return array (  127 => 42,  121 => 38,  118 => 37,  109 => 34,  105 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  72 => 25,  69 => 23,  64 => 22,  62 => 21,  48 => 9,  40 => 3,  35 => 1,);
+        return array (  152 => 54,  148 => 52,  144 => 50,  142 => 49,  140 => 48,  137 => 47,  133 => 45,  131 => 44,  129 => 43,  127 => 42,  121 => 38,  118 => 37,  109 => 34,  105 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  72 => 25,  69 => 23,  64 => 22,  62 => 21,  48 => 9,  40 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -184,7 +209,19 @@ class __TwigTemplate_2f99fa12852663943cbb880bd8af3fcdaabc4839e9e56f0d35fbaa03edc
             </tbody>
         </table>
     </div>
+    <div class=\"row\">
+        {% if message is defined and message is not empty %}
+            <div class=\"flash_message u-max-full-width\">
+                {{- message|e -}}
+            </div>
+        {% endif %}
+        {% if error is defined and error is not empty %}
+            <div class=\"flash_error\">
+                {{- error|e -}}
+            </div>
+        {% endif %}
+    </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_users.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_users.html.twig");
+{{ include('footer.html') }}", "admin/admin_users.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_users.html.twig");
     }
 }

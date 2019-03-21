@@ -34,10 +34,14 @@ class __TwigTemplate_f4a2929f7a910451ba2bb5a1553872f9730e0107a7b9a581176e7af60c3
         // line 1
         echo "<div class=\"navbar-spacer\"></div>
 <nav class=\"navbar\">
-    <div class=\"container\">
+    <div>
         <ul class=\"navbar-list u-pull-left\">
+            <li class=\"navbar-item\">
+                <a class=\"navbar-link\" href=\"/admin\">
+                    &nbsp;<i class=\"fab fa-dochub\"></i>ashboard
+                </a>
+            </li>
             <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/blog\">Blog</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/admin\">Dashboard</a></li>
         </ul>
         <ul class=\"navbar-list u-pull-right\">
             <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/admin/categories\">Categories</a></li>
@@ -71,7 +75,7 @@ class __TwigTemplate_f4a2929f7a910451ba2bb5a1553872f9730e0107a7b9a581176e7af60c3
             <li class=\"navbar-item\">
                 <a class=\"navbar-link\" href=\"#\" data-popover=\"#userProfile\">
                     <i class=\"fas fa-user\"></i> ";
-        // line 39
+        // line 43
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "user_firstname", []), "html", null, true);
         echo "
                 </a>
@@ -79,10 +83,10 @@ class __TwigTemplate_f4a2929f7a910451ba2bb5a1553872f9730e0107a7b9a581176e7af60c3
                     <ul class=\"popover-list\">
                         <li class=\"popover-item\">
                             <a class=\"popover-link\" href=\"";
-        // line 44
-        echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-edit-user-form", ["id" => twig_get_attribute($this->env, $this->source,         // line 46
-($context["session"] ?? null), "user_id", [])]), "html", null, true);
         // line 48
+        echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-edit-user-form", ["id" => twig_get_attribute($this->env, $this->source,         // line 50
+($context["session"] ?? null), "user_id", [])]), "html", null, true);
+        // line 52
         echo "\">Edit User</a>
                         </li>
                         <li class=\"popover-item\">
@@ -108,17 +112,21 @@ class __TwigTemplate_f4a2929f7a910451ba2bb5a1553872f9730e0107a7b9a581176e7af60c3
 
     public function getDebugInfo()
     {
-        return array (  86 => 48,  84 => 46,  83 => 44,  75 => 39,  35 => 1,);
+        return array (  90 => 52,  88 => 50,  87 => 48,  79 => 43,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<div class=\"navbar-spacer\"></div>
 <nav class=\"navbar\">
-    <div class=\"container\">
+    <div>
         <ul class=\"navbar-list u-pull-left\">
+            <li class=\"navbar-item\">
+                <a class=\"navbar-link\" href=\"/admin\">
+                    &nbsp;<i class=\"fab fa-dochub\"></i>ashboard
+                </a>
+            </li>
             <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/blog\">Blog</a></li>
-            <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/admin\">Dashboard</a></li>
         </ul>
         <ul class=\"navbar-list u-pull-right\">
             <li class=\"navbar-item\"><a class=\"navbar-link\" href=\"/admin/categories\">Categories</a></li>
@@ -170,6 +178,6 @@ class __TwigTemplate_f4a2929f7a910451ba2bb5a1553872f9730e0107a7b9a581176e7af60c3
             </li>
         </ul>
     </div>
-</nav>", "admin/admin_nav.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_nav.html.twig");
+</nav>", "admin/admin_nav.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_nav.html.twig");
     }
 }

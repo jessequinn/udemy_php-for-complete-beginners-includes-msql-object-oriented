@@ -32,7 +32,7 @@ class __TwigTemplate_53ea1a931709dc630db142f30ec1924ef3c3f08ed0e0c541dee937d2743
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo twig_include($this->env, $context, "admin/admin_header.html");
+        echo twig_include($this->env, $context, "admin/admin_header.html.twig");
         echo "
 <div class=\"container\">
     ";
@@ -45,16 +45,17 @@ class __TwigTemplate_53ea1a931709dc630db142f30ec1924ef3c3f08ed0e0c541dee937d2743
         // line 6
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "user_firstname", []));
         echo "!</p>
-        <hr>
         ";
-        // line 8
+        // line 7
         echo twig_include($this->env, $context, "admin/admin_widgets.html.twig");
         echo "
-        <div id=\"columnchart_material\" style=\"width: 800px; height: 500px;\"></div>
+    </div>
+    <div class=\"docs-section\">
+        <div id=\"columnchart_material\" class=\"docs-section u-max-full-width\"></div>
     </div>
 </div>
 ";
-        // line 12
+        // line 13
         echo twig_include($this->env, $context, "footer.html");
     }
 
@@ -70,22 +71,23 @@ class __TwigTemplate_53ea1a931709dc630db142f30ec1924ef3c3f08ed0e0c541dee937d2743
 
     public function getDebugInfo()
     {
-        return array (  58 => 12,  51 => 8,  46 => 6,  40 => 3,  35 => 1,);
+        return array (  59 => 13,  50 => 7,  46 => 6,  40 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{{ include('admin/admin_header.html') }}
+        return new Source("{{ include('admin/admin_header.html.twig') }}
 <div class=\"container\">
     {{ include('admin/admin_nav.html.twig') }}
     <div class=\"docs-section\">
         <h1>Admin Section</h1>
         <p>Hello {{ session.user_firstname|e }}!</p>
-        <hr>
         {{ include('admin/admin_widgets.html.twig') }}
-        <div id=\"columnchart_material\" style=\"width: 800px; height: 500px;\"></div>
+    </div>
+    <div class=\"docs-section\">
+        <div id=\"columnchart_material\" class=\"docs-section u-max-full-width\"></div>
     </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_index.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_index.html.twig");
+{{ include('footer.html') }}", "admin/admin_index.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_index.html.twig");
     }
 }

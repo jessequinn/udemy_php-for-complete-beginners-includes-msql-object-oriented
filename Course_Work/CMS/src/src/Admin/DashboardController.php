@@ -42,9 +42,12 @@ final class DashboardController
         if ($session->user_role == 'Admin') {
             return $this->view->render($response, 'admin/admin_index.html.twig', [
                 'category_count' => Category::get()->count(),
-                'post_count' => Post::get()->count(),
-                'comment_count' => Comment::get()->count(),
-                'user_count' => User::get()->count(),
+                'published_post_count' => Post::where('post_status','Published')->get()->count(),
+                'draft_post_count' => Post::where('post_status','Draft')->get()->count(),
+                'approved_comment_count' => Comment::where('comment_status','Approved')->get()->count(),
+                'unapproved_comment_count' => Comment::where('comment_status','Unapproved')->get()->count(),
+                'admin_user_count' => User::where('user_role','Admin')->get()->count(),
+                'subscriber_user_count' => User::where('user_role','Subscriber')->get()->count(),
                 'session' => $session,
             ]);
         }

@@ -211,6 +211,6 @@ class __TwigTemplate_c004491af7bde527e3bc0f7210b0dd67294026749bd6d26cb3520a3fd9a
         </table>
     </div>
 </div>
-{{ include('footer.html') }}", "admin/admin_comments.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_comments.html.twig");
+{{ include('footer.html') }}", "admin/admin_comments.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_comments.html.twig");
     }
 }

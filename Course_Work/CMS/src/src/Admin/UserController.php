@@ -36,6 +36,7 @@ final class UserController
         $session = new \RKA\Session();
         return $this->view->render($response, 'admin/admin_users.html.twig', [
             'users' => User::orderBy('user_id', 'desc')->get(),
+            'message' => $this->flash->getFirstMessage('message'),
             'session' => $session,
         ]);
     }
@@ -118,6 +119,10 @@ final class UserController
                     $this->logger->error("Error: duplicate username");
                     $this->flash->addMessage('error', 'Error: duplicate username');
                     return $response->withRedirect($this->router->pathFor('admin-add-user-form'));
+                } else {
+                    $this->flash->addMessage('message', 'Message: user has been created');
+                    return $response->withRedirect($this->router->pathFor('admin-list-users'));
+
                 }
             } else {
                 $this->logger->error("Error: could not validate inputs");

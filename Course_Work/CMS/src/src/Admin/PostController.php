@@ -118,7 +118,7 @@ final class PostController
         }
 
         return $this->view->render($response, 'admin/admin_add_post.html.twig', [
-            'categories' => Category::all(),
+            'categories' => Category::orderBy('cat_title')->get(),
             'session' => $session,
         ]);
     }

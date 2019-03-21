@@ -1,12 +1,13 @@
-{{ include('admin/admin_header.html') }}
+{{ include('admin/admin_header.html.twig') }}
 <div class="container">
     {{ include('admin/admin_nav.html.twig') }}
     <div class="docs-section">
         <h1>Admin Section</h1>
         <p>Hello {{ session.user_firstname|e }}!</p>
-        <hr>
         {{ include('admin/admin_widgets.html.twig') }}
-        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    </div>
+    <div class="docs-section">
+        <div id="columnchart_material" class="docs-section u-max-full-width"></div>
     </div>
 </div>
 {{ include('footer.html') }}

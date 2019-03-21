@@ -38,5 +38,17 @@
             </tbody>
         </table>
     </div>
+    <div class="row">
+        {% if message is defined and message is not empty %}
+            <div class="flash_message u-max-full-width">
+                {{- message|e -}}
+            </div>
+        {% endif %}
+        {% if error is defined and error is not empty %}
+            <div class="flash_error">
+                {{- error|e -}}
+            </div>
+        {% endif %}
+    </div>
 </div>
 {{ include('footer.html') }}

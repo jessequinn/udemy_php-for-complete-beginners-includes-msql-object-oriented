@@ -11,6 +11,10 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// https://github.com/johnathanmiller/secure-env-php
+use SecureEnvPHP\SecureEnvPHP;
+(new SecureEnvPHP())->parse('.env.enc', '.env.key');
+
 session_start();
 
 // Instantiate the app

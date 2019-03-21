@@ -32,117 +32,119 @@ class __TwigTemplate_61b46ef503b7aa37bd0955842004d604522acd2bb9cf9e951172a5fd1d7
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo "<div class=\"row\">
-    <div class=\"three columns\">
-        <div class=\"panel panel-primary\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-file-alt fa-3x\"></i>
-                    </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>";
-        // line 10
-        echo twig_escape_filter($this->env, ($context["post_count"] ?? null), "html", null, true);
+        echo "<div class=\"doc-section\">
+    <div class=\"row\">
+        <div class=\"three columns\">
+            <div class=\"panel panel-primary\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-file-alt fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>";
+        // line 11
+        echo twig_escape_filter($this->env, ($context["published_post_count"] ?? null), "html", null, true);
         echo "</div>
-                        <div>Posts</div>
+                            <div>Posts</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href=\"";
-        // line 15
+                <a href=\"";
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-list-posts"), "html", null, true);
         echo "\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-green\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-comments fa-3x\"></i>
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
                     </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>";
-        // line 32
-        echo twig_escape_filter($this->env, ($context["comment_count"] ?? null), "html", null, true);
-        echo "</div>
-                        <div>Comments</div>
-                    </div>
-                </div>
+                </a>
             </div>
-            <a href=\"";
-        // line 37
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-green\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-comments fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>";
+        // line 33
+        echo twig_escape_filter($this->env, ($context["approved_comment_count"] ?? null), "html", null, true);
+        echo "</div>
+                            <div>Comments</div>
+                        </div>
+                    </div>
+                </div>
+                <a href=\"";
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-list-comments"), "html", null, true);
         echo "\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-yellow\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-user fa-3x\"></i>
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
                     </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>";
-        // line 54
-        echo twig_escape_filter($this->env, ($context["user_count"] ?? null), "html", null, true);
-        echo "</div>
-                        <div> Users</div>
-                    </div>
-                </div>
+                </a>
             </div>
-            <a href=\"";
-        // line 59
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-yellow\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-user fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>";
+        // line 55
+        echo twig_escape_filter($this->env, (($context["admin_user_count"] ?? null) + ($context["subscriber_user_count"] ?? null)), "html", null, true);
+        echo "</div>
+                            <div> Users</div>
+                        </div>
+                    </div>
+                </div>
+                <a href=\"";
+        // line 60
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-list-users"), "html", null, true);
         echo "\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-red\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-list fa-3x\"></i>
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
                     </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>";
-        // line 76
+                </a>
+            </div>
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-red\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-list fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>";
+        // line 77
         echo twig_escape_filter($this->env, ($context["category_count"] ?? null), "html", null, true);
         echo "</div>
-                        <div>Categories</div>
+                            <div>Categories</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href=\"";
-        // line 81
+                <a href=\"";
+        // line 82
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->pathFor("admin-list-categories"), "html", null, true);
         echo "\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>";
@@ -160,100 +162,102 @@ class __TwigTemplate_61b46ef503b7aa37bd0955842004d604522acd2bb9cf9e951172a5fd1d7
 
     public function getDebugInfo()
     {
-        return array (  138 => 81,  130 => 76,  110 => 59,  102 => 54,  82 => 37,  74 => 32,  54 => 15,  46 => 10,  35 => 1,);
+        return array (  139 => 82,  131 => 77,  111 => 60,  103 => 55,  83 => 38,  75 => 33,  55 => 16,  47 => 11,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"row\">
-    <div class=\"three columns\">
-        <div class=\"panel panel-primary\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-file-alt fa-3x\"></i>
-                    </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>{{ post_count }}</div>
-                        <div>Posts</div>
+        return new Source("<div class=\"doc-section\">
+    <div class=\"row\">
+        <div class=\"three columns\">
+            <div class=\"panel panel-primary\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-file-alt fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>{{ published_post_count }}</div>
+                            <div>Posts</div>
+                        </div>
                     </div>
                 </div>
+                <a href=\"{{ path_for('admin-list-posts') }}\">
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
+                    </div>
+                </a>
             </div>
-            <a href=\"{{ path_for('admin-list-posts') }}\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-green\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-comments fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>{{ approved_comment_count }}</div>
+                            <div>Comments</div>
+                        </div>
+                    </div>
                 </div>
-            </a>
+                <a href=\"{{ path_for('admin-list-comments') }}\">
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-yellow\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-user fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>{{ admin_user_count + subscriber_user_count }}</div>
+                            <div> Users</div>
+                        </div>
+                    </div>
+                </div>
+                <a href=\"{{ path_for('admin-list-users') }}\">
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class=\"three columns\">
+            <div class=\"panel panel-red\">
+                <div class=\"panel-heading\">
+                    <div class=\"row\">
+                        <div class=\"three columns\">
+                            <i class=\"fa fa-list fa-3x\"></i>
+                        </div>
+                        <div class=\"nine columns text-right\">
+                            <div class='huge'>{{ category_count }}</div>
+                            <div>Categories</div>
+                        </div>
+                    </div>
+                </div>
+                <a href=\"{{ path_for('admin-list-categories') }}\">
+                    <div class=\"panel-footer\">
+                        <span class=\"u-pull-left\">View Details</span>
+                        <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
+                        <div class=\"u-cf\"></div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-green\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-comments fa-3x\"></i>
-                    </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>{{ comment_count }}</div>
-                        <div>Comments</div>
-                    </div>
-                </div>
-            </div>
-            <a href=\"{{ path_for('admin-list-comments') }}\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-yellow\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-user fa-3x\"></i>
-                    </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>{{ user_count }}</div>
-                        <div> Users</div>
-                    </div>
-                </div>
-            </div>
-            <a href=\"{{ path_for('admin-list-users') }}\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class=\"three columns\">
-        <div class=\"panel panel-red\">
-            <div class=\"panel-heading\">
-                <div class=\"row\">
-                    <div class=\"three columns\">
-                        <i class=\"fa fa-list fa-3x\"></i>
-                    </div>
-                    <div class=\"nine columns text-right\">
-                        <div class='huge'>{{ category_count }}</div>
-                        <div>Categories</div>
-                    </div>
-                </div>
-            </div>
-            <a href=\"{{ path_for('admin-list-categories') }}\">
-                <div class=\"panel-footer\">
-                    <span class=\"u-pull-left\">View Details</span>
-                    <span class=\"u-pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>
-                    <div class=\"u-cf\"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>", "admin/admin_widgets.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/admin/admin_widgets.html.twig");
+</div>", "admin/admin_widgets.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/admin/admin_widgets.html.twig");
     }
 }

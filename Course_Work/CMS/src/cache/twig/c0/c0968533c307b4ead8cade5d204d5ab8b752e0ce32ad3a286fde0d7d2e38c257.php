@@ -81,6 +81,6 @@ class __TwigTemplate_6dbfa7f3b554829a9928a1757122e45b22ae9cd45cb9cb0a39b4e51ea6e
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
     <script src=\"/dist/js/custom.js\"></script>
 </head>
-<body>", "header.html", "/home/jessequinn/PhpstormProjects/CMS/src/templates/header.html");
+<body>", "header.html", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/header.html");
     }
 }

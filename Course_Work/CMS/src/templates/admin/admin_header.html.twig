@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Slim 3</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/dist/css/normalize.css">
+    <link rel="stylesheet" href="/dist/css/skeleton.css">
+    <link rel="stylesheet" href="/dist/css/custom.css">
+    <!-- Bootstrap -->
+    {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+    <!--FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/dist/js/custom.js"></script>
+    <!--Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        (function ($, sr) {
+            // debouncing function from John Hann
+            // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+            // https://gist.github.com/randylien/5683851
+            var debounce = function (func, threshold, execAsap) {
+                var timeout;
+
+                return function debounced() {
+                    var obj = this, args = arguments;
+
+                    function delayed() {
+                        if (!execAsap)
+                            func.apply(obj, args);
+                        timeout = null;
+                    };
+
+                    if (timeout)
+                        clearTimeout(timeout);
+                    else if (execAsap)
+                        func.apply(obj, args);
+
+                    timeout = setTimeout(delayed, threshold || 100);
+                };
+            }
+            // smartresize
+            jQuery.fn[sr] = function (fn) {
+                return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
+            };
+
+        })(jQuery, 'smartresize');
+
+        google.charts.load('current', {'packages': ['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        {%- set key = [
+            'Published Posts',
+            'Draft Posts',
+            'Approved Comments',
+            'Unapproved Comments',
+            'Admins',
+            'Subscribers',
+            'Categories'
+        ] -%}
+        {%- set value = [
+            published_post_count,
+            draft_post_count,
+            approved_comment_count,
+            unapproved_comment_count,
+            admin_user_count,
+            subscriber_user_count,
+            category_count
+        ] -%}
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Data', 'Count'],
+                {% for i in 0..6 %}
+                ['{{ key[i] }}',{{ value[i] }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                chart: {
+                    title: '',
+                    subtitle: '',
+                }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+
+            // resize instantly
+            $(window).smartresize(function () {
+                chart.draw(data, options);
+            });
+        }
+    </script>
+</head>
+<body>

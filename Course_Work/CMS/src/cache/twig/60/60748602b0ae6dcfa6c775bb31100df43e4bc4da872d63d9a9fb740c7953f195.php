@@ -109,6 +109,6 @@ class __TwigTemplate_f195f4cf452139950a9177252bfd7f9825cf5a0cf165501aa544b5f3754
         </form>
     </div>
 </div>
-{{ include('footer.html') }}", "login/login.html.twig", "/home/jessequinn/PhpstormProjects/CMS/src/templates/login/login.html.twig");
+{{ include('footer.html') }}", "login/login.html.twig", "/home/jessequinn/PhpstormProjects/php-for-complete-beginners-includes-msql-object-oriented/Course_Work/CMS/src/templates/login/login.html.twig");
     }
 }
