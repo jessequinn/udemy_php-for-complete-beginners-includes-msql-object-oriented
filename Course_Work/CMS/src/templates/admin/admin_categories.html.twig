@@ -1,54 +1,6 @@
 {{ include('admin/admin_header.html.twig') }}
 <div class="container">
     {{ include('admin/admin_nav.html.twig') }}
-    <div class="docs-section">
-        <h1>Categories Section</h1>
-        <p>You may also edit or delete individual categories.</p>
-        <form action="{{ path_for('add-update-category') }}" method="post">
-            <div class="form-group">
-                {% if category_edit is defined %}
-                    <label for="cat_title">Edit Category</label>
-                {% else %}
-                    <label for="cat_title">Add Category</label>
-                {% endif %}
-                <input class="form-control" type="text" id="cat_title" name="cat_title"
-                        {% if category_edit is defined %}
-                            value="{{ category_edit.cat_title }}"
-                        {% endif %}
-                >
-            </div>
-            {% if category_edit is defined %}
-                <input type="hidden" value="{{ category_edit.cat_id }}" name="cat_id" id="cat_id">
-            {% endif %}
-            {% if category_edit is defined %}
-                <input class="btn btn-primary" type="submit" name="submit" value="Edit Category">
-            {% else %}
-                <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
-            {% endif %}
-        </form>
-    </div>
-
-    <div class="docs-section">
-        <table class="table table-sm table-hover table-dark">
-            <thead>
-            <tr>
-                {#<th>ID</th>#}
-                <th scope="col">Title</th>
-                <th scope="col" colspan="2">Operations</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for c in categories %}
-                <tr>
-                    {#<td>{{ c.cat_id }}</td>#}
-                    <td>{{ c.cat_title }}</td>
-                    <td><a href="/admin/categories/edit/{{ c.cat_id }}">Edit</a></td>
-                    <td><a href="/admin/categories/delete/{{ c.cat_id }}">Delete</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
 
     {% if message is defined and message is not empty %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -67,6 +19,44 @@
             </button>
         </div>
     {% endif %}
+
+    <form class="form-inline" action="{{ path_for('add-update-category') }}" method="post">
+        <div class="form-group mb-2">
+            <input class="form-control" type="text" id="cat_title" name="cat_title"
+                    {% if category_edit is defined %}
+                        value="{{ category_edit.cat_title }}"
+                    {% endif %}
+            >
+        </div>
+        {% if category_edit is defined %}
+            <input type="hidden" value="{{ category_edit.cat_id }}" name="cat_id" id="cat_id">
+        {% endif %}
+        {% if category_edit is defined %}
+            <input class="btn btn-default mb-2" type="submit" name="submit" value="Edit Category">
+        {% else %}
+            <input class="btn btn-default mb-2" type="submit" name="submit" value="Add Category">
+        {% endif %}
+    </form>
+
+    <table class="table table-sm table-hover table-white">
+        <thead>
+        <tr>
+            {#<th>ID</th>#}
+            <th scope="col">Title</th>
+            <th scope="col" colspan="2">Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in categories %}
+            <tr>
+                {#<td>{{ c.cat_id }}</td>#}
+                <td>{{ c.cat_title }}</td>
+                <td><a href="/admin/categories/edit/{{ c.cat_id }}">Edit</a></td>
+                <td><a href="/admin/categories/delete/{{ c.cat_id }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 </div>
 {{ include('admin/admin_footer.html') }}

@@ -6,7 +6,6 @@ use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Admin\User;
 use Slim\Router;
 use Slim\Flash\Messages as FlashMessages;
 
@@ -44,7 +43,6 @@ final class UserController
     public function addUserForm(Request $request, Response $response, $args)
     {
         $session = new \RKA\Session();
-
         return $this->view->render($response, 'admin/admin_add_user.html.twig',
             [
                 'csrf' => [
@@ -72,6 +70,7 @@ final class UserController
                             'value' => $request->getAttribute('csrf_value'),
                         ],
                         'error' => $this->flash->getFirstMessage('error'),
+                        'message' => $this->flash->getFirstMessage('message'),
                         'session' => $session,
                     ]);
             }

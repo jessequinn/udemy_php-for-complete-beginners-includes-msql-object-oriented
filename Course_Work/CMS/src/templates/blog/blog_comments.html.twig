@@ -1,68 +1,33 @@
-<div class="doc-section">
-    <h5>Leave a Comment:</h5>
-    <form action="{{ path_for('blog-add-comment', {id: post_show.post_id}) }}" method="post">
-        <div class="row">
-            <div class="six columns">
-                <label for="comment_author">Author</label>
-                <input class="u-full-width" type="text" id="comment_author" name="comment_author">
-            </div>
-            <div class="six columns">
-                <label for="comment_email">Email</label>
-                <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="comment_email"
-                       name="comment_email">
-            </div>
-        </div>
-        <label for="comment_content">Comment</label>
-        <textarea class="u-full-width" placeholder="Please leave a message ..." id="comment_content"
-                  name="comment_content"></textarea>
-        <input type="hidden" name="comment_post_id" value="{{ post_show.post_id }}">
-        <input type="hidden" name="csrf_name" value="{{ csrf.name }}">
-        <input type="hidden" name="csrf_value" value="{{ csrf.value }}">
-        <input class="button-primary" type="submit" value="Submit">
-    </form>
-
-    <hr>
-
-    <!-- Posted Comments -->
-
-    <!-- Comment -->
-    {% if comments_show is defined %}
-        {% for c in comments_show %}
-            {% if c.comment_status == 'Approved' %}
-                <div class="comment" id="{{ c.comment_id }}">
-                    <h6>Comment made by <b>{{ c.comment_author|e }}</b>
-                        |
-                        <small class="heading-font-size">{{ c.comment_date|e|date("m/d/Y") }}</small>
-                    </h6>
-                    <p class="comment">{{ c.comment_content }}</p>
-                </div>
+<div class="alert alert-white alert-dismissible fade show border" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="actionBox">
+        <ul class="commentList">
+            {% if comments_show is defined %}
+                {% for c in comments_show %}
+                    {% if c.comment_status == 'Approved' %}
+                        <li id="{{ c.comment_id|e }}">
+                            <div class="commentText">
+                                <p class="">{{ c.comment_content|e|markdown }}</p> <span
+                                        class="date sub-text">on {{ c.comment_date|e|date(" M d, y") }}</span>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
             {% endif %}
-        {% endfor %}
-    {% endif %}
-
-    <!-- Comment -->
-    <div class="comment">
-        <h6>Start Bootstrap
-            <small class="heading-font-size">August 25, 2014 at 9:30 PM</small>
-        </h6>
-        <p class="comment">
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
-            purus
-            odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-            Donec lacinia congue felis in faucibus.
-        </p>
-        <!-- Nested Comment -->
-        <div class="nested-comment">
-            <h6>Nested Start Bootstrap
-                <small class="heading-font-size">August 25, 2014 at 9:30 PM</small>
-            </h6>
-            <p class="nested-comment">
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
-                Cras
-                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                vulputate
-                fringilla. Donec lacinia congue felis in faucibus.</p>
-        </div>
-        <!-- End Nested Comment -->
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" role="form" action="{{ path_for('blog-add-comment', { 'id': post_show.post_id }) }}"
+              method="post">
+            <div class="form-group">
+                <textarea class="form-control mr-sm-2" placeholder="Your comments" id="comment_content"
+                          name="comment_content"></textarea>
+                <small id="commentHelp" class="form-text text-muted">Comments need to be approved prior to appearing on the site.</small>
+            </div>
+            <input type="hidden" name="comment_post_id" value="{{ post_show.post_id }}">
+            <input type="hidden" name="csrf_name" value="{{ csrf.name }}">
+            <input type="hidden" name="csrf_value" value="{{ csrf.value }}">
+            <input class="btn btn-default" type="submit" name="submit" value="Add">
+        </form>
     </div>
 </div>

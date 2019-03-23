@@ -14,7 +14,7 @@ $app->any('/admin', 'Admin\DashboardController:index')
 // Post section for admin
 $app->get('/admin/posts', 'Admin\PostController:listPosts')
     ->setName('admin-list-posts');
-$app->get('/admin/posts/delete/{id}', 'Admin\PostController:deletePost')
+$app->map(['GET','POST'],'/admin/posts/delete/{id}', 'Admin\PostController:deletePost')
     ->setName('admin-delete-post');
 $app->get('/admin/posts/add', 'Admin\PostController:addPostForm')
     ->setName('admin-add-post-form');
@@ -24,7 +24,8 @@ $app->get('/admin/posts/edit/{id}', 'Admin\PostController:editPostForm')
     ->setName('admin-edit-post-form');
 $app->post('/admin/posts/edit/submit', 'Admin\PostController:editPost')
     ->setName('admin-edit-post');
-
+$app->post('/admin/posts/mass', 'Admin\PostController:massPostManipulation')
+    ->setName('admin-mass-post-manipulation');
 
 $app->get('/blog', 'Blog\BlogController:listPosts')
     ->setName('blog-list-posts');
@@ -82,3 +83,9 @@ $app->post('/login/submit', 'Login\LoginController:loginUser')
     ->setName('login-user');
 $app->get('/logout', 'Login\LoginController:logoutUser')
     ->setName('logout-user');
+
+// Registration
+$app->get('/register', 'Registration\RegistrationController:registrationForm')
+    ->setName('registration-form');
+$app->post('/register/submit', 'Registration\RegistrationController:registerUser')
+    ->setName('register-user');

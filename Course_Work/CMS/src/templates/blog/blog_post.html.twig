@@ -1,16 +1,46 @@
 {{ include('header.html') }}
 <div class="container">
     {{ include('nav.html.twig') }}
+
     {% if post_show is defined %}
-    <div class="docs-section" id="{{ post_show.post_id }}">
-        <h1>{{ post_show.post_title|e }}</h1>
-        <p>by {{ post_show.post_author|e }}</p>
-        <p>Posted on {{ post_show.post_date|e|date("d-m-y") }}</p>
-        <img src="/images/{{  post_show.post_img }}" alt="">
-        <p>{{ post_show.post_content }}</p>
-    </div>
+        <div class="blog-post" id="{{ post_show.post_id|e }}">
+            {% if session.user_role == 'Admin' %}
+                <span class="float-right">
+                <a href="{{ path_for('admin-edit-post-form', {
+                    'id': post_show.post_id,
+                }) }}" class="btn btn-default">Edit</a>
+            </span>
+            {% endif %}
+            <h2 class="blog-post-title">{{ post_show.post_title|e }}</h2>
+            <p class="blog-post-meta">{{ post_show.post_date|e|date("M d, Y")|e }} by <a
+                        href="#">{{ post_show.post_author|e }}</a></p>
+            <p>
+                {{ post_show.post_content|e|markdown }}
+            </p>
+
+        </div>
     {% endif %}
+
     {{ include('blog/blog_comments.html.twig') }}
+
+    {% if message is defined and message is not empty %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{- message|e -}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    {% if error is defined and error is not empty %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{- error|e -}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
 </div>
-</div>
+
 {{ include('footer.html') }}

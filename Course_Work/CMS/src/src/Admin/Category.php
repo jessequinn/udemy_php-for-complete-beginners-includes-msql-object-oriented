@@ -31,9 +31,6 @@ final class Category extends Model
         $validator = new Validator($data);
         $validator->rule('required', 'cat_title');
         $validator->rule('lengthBetween', 'cat_title', 1, 255);
-//        $validator->labels([
-//            'cat_title' => 'Title',
-//        ]);
 
         return $validator;
     }

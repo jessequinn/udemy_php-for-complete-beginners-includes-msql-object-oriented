@@ -37,7 +37,7 @@ final class BlogController
         $session = new \RKA\Session();
 
         return $this->view->render($response, 'blog/blog_index.html.twig', [
-            'posts' => Post::all(),
+            'posts' => Post::orderBy('post_id', 'desc')->get(),
             'categories' => Category::all(),
             'message' => $this->flash->getFirstMessage('message'),
             'error' => $this->flash->getFirstMessage('error'),
@@ -47,6 +47,7 @@ final class BlogController
 
     public function listPost(Request $request, Response $response, $args)
     {
+        $session = new \RKA\Session();
         $post_show = null;
         $comments_show = null;
 
@@ -63,6 +64,9 @@ final class BlogController
                 'name' => $request->getAttribute('csrf_name'),
                 'value' => $request->getAttribute('csrf_value'),
             ],
+            'message' => $this->flash->getFirstMessage('message'),
+            'error' => $this->flash->getFirstMessage('error'),
+            'session' => $session,
         ]);
 
         return $response;
@@ -70,6 +74,7 @@ final class BlogController
 
     public function addComment(Request $request, Response $response, $args)
     {
+        $session = new \RKA\Session();
         $post_show = null;
         $comments_show = null;
         $post_id = $args['id'];
@@ -84,30 +89,24 @@ final class BlogController
                 $validator = Comment::getValidator($data);
 
                 if ($validator->validate()) {
-                    $commentData = array(
+                    $comment_create = array(
                         'comment_post_id' => $post_id,
-                        'comment_author' => $data['comment_author'],
-                        'comment_email' => $data['comment_email'],
                         'comment_content' => $data['comment_content'],
                         'comment_status' => 'Unapproved',
                         'comment_date' => date('y-m-d'),
                     );
 
-                    Comment::create($commentData);
+                    Comment::create($comment_create);
 
                     // increment post_comment_count
                     $post_edit = Post::find($post_id);
                     $post_edit->post_comment_count += 1;
                     $post_edit->save();
 
-                    return $response->withRedirect($this->router->pathFor('blog-list-post',
-                        [
-                            'id' => $post_id,
-                        ]));
+                    $this->flash->addMessage('message', 'Comment submitted.');
+
                 } else {
-                    // TODO: need flash message here
-                    $this->logger->error("Did not pass validation");
-                    $errors = $validator->errors(); // TODO: pass errors to twig
+                    $this->flash->addMessage('error', 'Submitted an empty comment.');
                 }
             }
         }

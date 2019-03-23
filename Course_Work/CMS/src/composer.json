@@ -22,13 +22,17 @@
         "vlucas/valitron": "^1.4",
         "illuminate/database": "^5.8",
         "akrabat/rka-slim-session-middleware": "^2.0",
-        "johnathanmiller/secure-env-php": "^2.0"
+        "johnathanmiller/secure-env-php": "^2.0",
+        "aptoma/twig-markdown": "^3.0",
+        "michelf/php-markdown": "^1.8",
+        "league/commonmark": "^0.18.2"
     },
     "autoload": {
         "psr-4" : {
             "Admin\\": "src/Admin",
             "Blog\\": "src/Blog",
-            "Login\\": "src/Login"
+            "Login\\": "src/Login",
+            "Registration\\": "src/Registration"
         }
     },
     "require-dev": {

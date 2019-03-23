@@ -2,15 +2,21 @@
 // DIC configuration
 $container = $app->getContainer();
 
+// Twig extension
+// https://github.com/aptoma/twig-markdown
+use Aptoma\Twig\Extension\MarkdownExtension;
+use Aptoma\Twig\Extension\MarkdownEngine;
+$engine = new MarkdownEngine\MichelfMarkdownEngine();
+
 // View
 $container['view'] = function ($c) {
-//    $loader = new \Twig\Loader\FilesystemLoader($c['settings']['view']['template_path']);
-//    $view = new \Twig\Environment($loader, $c['settings']['view']['twig']);
+    global $engine;
     $view = new \Slim\Views\Twig($c['settings']['view']['template_path'], $c['settings']['view']['twig']);
     // Add extensions
     $view->addExtension(new Slim\Views\TwigExtension($c['router'], $c['request']->getUri()));
 //    $view->addExtension(new Twig_Extension_Debug());
 //    $view->addExtension(new Bookshelf\TwigExtension($c['flash']));
+    $view->addExtension(new MarkdownExtension($engine));
     return $view;
 };
 
@@ -117,6 +123,14 @@ $container[Admin\UserController::class] = function ($c) {
     return new \Admin\UserController($view, $logger, $router, $flash);
 };
 
+$container[Admin\DashboardController::class] = function ($c) {
+    $view = $c->get('view');
+    $logger = $c->get('logger');
+    $router = $c->get('router');
+    $flash = $c->get('flash');
+    return new \Admin\DashboardController($view, $logger, $router, $flash);
+};
+
 $container[Login\LoginController::class] = function ($c) {
     $view = $c->get('view');
     $logger = $c->get('logger');
@@ -125,10 +139,10 @@ $container[Login\LoginController::class] = function ($c) {
     return new \Login\LoginController($view, $logger, $router, $flash);
 };
 
-$container[Admin\DashboardController::class] = function ($c) {
+$container[Registration\RegistrationController::class] = function ($c) {
     $view = $c->get('view');
     $logger = $c->get('logger');
     $router = $c->get('router');
     $flash = $c->get('flash');
-    return new \Admin\DashboardController($view, $logger, $router, $flash);
+    return new \Registration\RegistrationController($view, $logger, $router, $flash);
 };

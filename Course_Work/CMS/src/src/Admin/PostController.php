@@ -41,6 +41,10 @@ final class PostController
             'session' => $session,
             'error' => $this->flash->getFirstMessage('error'),
             'message' => $this->flash->getFirstMessage('message'),
+            'csrf' => [
+                'name' => $request->getAttribute('csrf_name'),
+                'value' => $request->getAttribute('csrf_value'),
+            ],
         ]);
     }
 
@@ -84,7 +88,7 @@ final class PostController
             }
         }
 
-        return $response->withRedirect($this->router->pathFor('admin-list-users'));
+        return $response->withRedirect($this->router->pathFor('admin-list-posts'));
     }
 
     public function addPost(Request $request, Response $response, $args)
@@ -177,6 +181,7 @@ final class PostController
                     $post_edit->post_status = $post_data['post_status'];
                     $post_edit->post_tags = $post_data['post_tags'];
                     $post_edit->save();
+                    $this->flash->addMessage('message', 'Message: updated post');
                 }
             } else {
                 $this->flash->addMessage('error', 'Error: could not validate inputs');
@@ -192,16 +197,38 @@ final class PostController
 
     public function deletePost(Request $request, Response $response, $args)
     {
-        if (isset($args['id'])) {
-            $post = Post::find($args['id']);
 
-            if ($post) {
-                unlink(__DIR__ . '/../../public/images/' . $post['post_img']);
-                Post::destroy($args['id']);
+        if ($request->isGet()) {
+            if (isset($args['id'])) {
+                $post_delete = Post::find($args['id']);
+
+                if ($post_delete) {
+                    unlink(__DIR__ . '/../../public/images/' . $post_delete['post_img']);
+                    Comment::where('comment_post_id', '=', $post_delete['post_id'])->delete();
+                    Post::destroy($post_delete['post_id']);
+                }
             }
+            return $response->withRedirect($this->router->pathFor('admin-list-posts'));
         }
 
-        return $response->withRedirect($this->router->pathFor('admin-list-posts'));
+        // internal call only here for this mass delete. massPostManipulation() is required
+
+        if ($request->isPost()) {
+            $post_data = $request->getParsedBody();
+
+            if (!empty($post_data['checkboxArray'])) {
+
+                foreach ($post_data['checkboxArray'] as $p) {
+                    $post_delete = Post::find($p);
+
+                    if ($post_delete) {
+                        unlink(__DIR__ . '/../../public/images/' . $post_delete['post_img']);
+                        Comment::where('comment_post_id', '=', $post_delete['post_id'])->delete();
+                        Post::destroy($post_delete['post_id']);
+                    }
+                }
+            }
+        }
     }
 
     private function moveUploadedFile($directory, UploadedFile $uploadedFile)
@@ -211,5 +238,51 @@ final class PostController
         $filename = sprintf('%s.%0.8s', $basename, $extension);
         $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
         return $filename;
+    }
+
+    public function massPostManipulation(Request $request, Response $response, $args)
+    {
+        if ($request->isPost()) {
+            if ($request->getAttribute('csrf_status') === false) {
+                $this->flash->addMessage('error', 'Error: CSRF form failure');
+                $this->logger->error('Error: CSRF form failure');
+            } else {
+                $post_data = $request->getParsedBody();
+
+                switch ($post_data['select_option']) {
+                    case 'Delete':
+                        $this->deletePost($request, $response, $args);
+                        break;
+                    case 'Published':
+                    case 'Draft':
+                        if (!empty($post_data['checkboxArray'])) {
+                            $this->changeStatus($post_data);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                return $response->withRedirect($this->router->pathFor('admin-list-posts'));
+            }
+        }
+    }
+
+    private function changeStatus($post_data)
+    {
+        foreach ($post_data['checkboxArray'] as $p) {
+            $post_update = Post::find($p);
+
+            if ($post_update) {
+                if ($post_data['select_option'] == 'Published') {
+                    $post_update->post_status = 'Published';
+                    $post_update->save();
+                } else {
+                    $post_update->post_status = 'Draft';
+                    $post_update->save();
+                }
+            }
+        }
+
     }
 }

@@ -54,7 +54,7 @@ final class LoginController
                 if (!empty($user_data)) {
                     /* user login here */
                     if ($user_data['user_username'] == $data['user_username']
-                        and $user_data['user_password'] == $data['user_password']) {
+                        and crypt($data['user_password'], $user_data['user_password']) == $user_data['user_password']) {
                         // start session
                         $session = new \RKA\Session();
                         $this->flash->addMessage('message',
